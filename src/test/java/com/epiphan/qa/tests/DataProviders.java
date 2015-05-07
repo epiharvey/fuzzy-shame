@@ -12,48 +12,8 @@ import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 
-public class SeleniumTest {
-	
-	//TestEnvironment is a semi-flexible way to pass information to each @Test method 
-	class TestEnvironment{
-		WebDriver driver;
-		String hubIP;
-		String targetIP;
-		String targetUser;
-		String targetPass;
-		String browser;
+public class DataProviders {
 		
-		public TestEnvironment(String hip, String tip, String tun, String tpw, String brw){
-			hubIP = hip;
-			targetIP = tip;
-			targetUser = tun;
-			targetPass = tpw;
-			browser = brw;
-			driver = null;
-		}
-		
-		//for starting a new WebDriver with this environments specs
-		WebDriver startDriver(){
-			URL hubUrl;
-			WebDriver driver;
-			DesiredCapabilities capabilities;
-			try {
-				hubUrl = new URL("http://"+hubIP+"/wd/hub");
-			} catch (MalformedURLException e) {
-				System.out.println("Unable to create WebDriver: Bad hub address");
-				e.printStackTrace();
-				return null;
-			}
-			capabilities = new DesiredCapabilities();
-			capabilities.setCapability("browserName", browser);
-			System.out.println("Connecting to hub at "+hubIP);
-			driver = new RemoteWebDriver(hubUrl, capabilities);
-			System.out.println("Connected");
-			this.driver = driver;
-			return driver;
-		}
-	}
-	
 	/* This should be the only important thing in this class.
 	 * Builds the TestEnvironments to package data for the @Test methods in other test classes which extend
 	 * SeleniumTest.
@@ -62,7 +22,7 @@ public class SeleniumTest {
 	 * TODO Make this optionally handle auth cridentials on a per-target basis.
 	 */
 	@DataProvider(name="env", parallel=true)
-	public Object[][] env(ITestContext context){
+	public static Object[][] env(ITestContext context){
 		
 		ArrayList<Object[]> envs = new ArrayList<Object[]>();
 		

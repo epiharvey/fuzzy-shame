@@ -7,9 +7,9 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 
-public class LoginTest extends SeleniumTest {
+public class LoginTest {
 	
-	@Test(dataProvider="env")
+	@Test(dataProviderClass=DataProviders.class,dataProvider="env")
 	public void logIn(TestEnvironment e){
 		WebDriver d;
 		
@@ -20,7 +20,7 @@ public class LoginTest extends SeleniumTest {
 		d.get("http://google.ca");
 		d.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		try {
-			TimeUnit.SECONDS.sleep(15);
+			TimeUnit.SECONDS.sleep(5);
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
