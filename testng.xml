@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	<suite name="Proto Suite" verbose="10" parallel="methods" thread-count="10">
+	<suite name="Epiphan Test Suite [MD-XXXX]" verbose="10" parallel="methods" thread-count="10">
 		<listeners>
 			<listener class-name="org.uncommons.reportng.HTMLReporter"/>
 			<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
 		</listeners>
 		<parameter name="browser" value="firefox"/>
 		<parameter name="hubIP" value="192.168.114.111:4444"/>
-		<parameter name="targetIP" value="192.168.114.109" />
+		<parameter name="targetIP" value="192.168.114.117" />
 		<parameter name="targetUser" value="admin"/>
 		<parameter name="targetPass" value=""/>
-			<test name="Login Test">
+			<test name="MD-3993">
 				<classes>
-					<class name="com.epiphan.qa.tests.LoginTest"/>
+					<class name="com.epiphan.qa.tests.MD3993"/>
 				</classes>
 			</test>
 	</suite>

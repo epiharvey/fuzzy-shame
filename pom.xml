@@ -3,12 +3,12 @@
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>MySel20Proj</groupId>
-        <artifactId>MySel20Proj</artifactId>
+        <groupId>com.epiphan.qa</groupId>
+        <artifactId>automation</artifactId>
         <version>1.0</version>
         <properties>
         	<timestamp>${maven.build.timestamp}</timestamp>
-        	<maven.build.timestamp.format>yyyy-MM-dd-kk:mm:ss</maven.build.timestamp.format>
+        	<maven.build.timestamp.format>yyyy-MM-dd-HH:mm:ss</maven.build.timestamp.format>
         </properties>
         <dependencies>
             <dependency>
@@ -53,6 +53,12 @@
         			<artifactId>maven-surefire-plugin</artifactId>
         			<version>2.18.1</version>
         			<configuration>
+        			<properties>
+        				<property>
+        					<name>usedefaultlisteners</name>
+        					<value>false</value>
+        				</property>
+        			</properties>
         				<reportsDirectory>./test-output/${timestamp}/</reportsDirectory>
         				<suiteXmlFiles>
         					<suiteXmlFile>testng.xml</suiteXmlFile>
