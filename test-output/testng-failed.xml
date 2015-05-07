@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="10" name="Failed suite [Proto Suite]" parallel="methods">
+  <parameter name="targetIP" value="192.168.114.109"/>
+  <parameter name="targetPass" value=""/>
+  <parameter name="targetUser" value="admin"/>
+  <parameter name="browser" value="firefox firefox firefox firefox firefox firefox firefox firefox"/>
+  <parameter name="hubIP" value="192.168.114.111:4444"/>
+  <test name="Login Test(failed)" parallel="methods">
+    <classes>
+      <class name="com.epiphan.qa.tests.LoginTest">
+        <methods>
+          <include name="logIn" invocation-numbers="4 7 1 2 6 3 0 5"/>
+        </methods>
+      </class> <!-- com.epiphan.qa.tests.LoginTest -->
+    </classes>
+  </test> <!-- Login Test(failed) -->
+</suite> <!-- Failed suite [Proto Suite] -->

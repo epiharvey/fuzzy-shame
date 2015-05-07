@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<suite name="Proto Suite" verbose="1" parallel="methods" thread-count="10">
+		<parameter name="browser" value="firefox firefox firefox firefox firefox firefox firefox firefox"/>
+		<parameter name="hubIP" value="192.168.114.111:4444"/>
+		<parameter name="targetIP" value="192.168.114.109" />
+		<parameter name="targetUser" value="admin"/>
+		<parameter name="targetPass" value=""/>
+			<test name="Login Test">
+				<classes>
+					<class name="com.epiphan.qa.tests.LoginTest"/>
+				</classes>
+			</test>
+	</suite>
