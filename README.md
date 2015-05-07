@@ -1,1 +1,3 @@
-# fuzzy-shame
+# Fuzzy Shame
+
+Epiphan Systems Test Automation Prototype
