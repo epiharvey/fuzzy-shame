@@ -10,6 +10,7 @@ import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.ExecuteException;
 import org.apache.commons.exec.PumpStreamHandler;
 import org.apache.commons.exec.ShutdownHookProcessDestroyer;
+import org.apache.commons.lang3.StringUtils;
 
 
 /**
@@ -46,8 +47,8 @@ public class NodeSpawner {
 		JarFileAttributes attributes = getJarFile(args);
 		Properties properties = new Properties();
 		
-		properties.load(NodeSpawner.class.getResourceAsStream("/spawner.properties"));
-		long interval = Long.parseLong((String) properties.get("defaultInterval"));
+		//properties.load(NodeSpawner.class.getResourceAsStream("/spawner.properties"));
+		long interval = 1000; //Long.parseLong((String) properties.get("defaultInterval"));
 		while(true){
 			continuouslyRestart(attributes, interval);
 			Thread.sleep(interval);
@@ -78,15 +79,21 @@ public class NodeSpawner {
 	
 	public static void continuouslyRestart(JarFileAttributes attributes, long interval)
 			throws ExecuteException, IOException, InterruptedException {
-		System.out.println("Spawning the application");
+		System.out.println("Spawning the application with "+attributes.toString());
 		CommandLine cmdLine = new CommandLine("java");
 		cmdLine.addArgument("-jar");
-		cmdLine.addArgument(attributes.getFilePath().getAbsolutePath()+" "+attributes.getJarArgs());
+		cmdLine.addArgument(attributes.getFilePath().getCanonicalPath());
+		String[] args = StringUtils.split(attributes.getJarArgs(), " ");
+		for (String arg : args){
+			cmdLine.addArgument(arg);
+		}	
+		System.out.println("Executing "+cmdLine.toString());
 		
 		DefaultExecutor executor = new DefaultExecutor();
-		executor.setStreamHandler(new PumpStreamHandler());
+		executor.setStreamHandler(new PumpStreamHandler(System.out));
 		executor.setProcessDestroyer(new ShutdownHookProcessDestroyer());
 		DefaultExecuteResultHandler handler = new DefaultExecuteResultHandler();
+		executor.execute(cmdLine, handler);
 		while(!handler.hasResult()){
 			Thread.sleep(interval);
 		}
