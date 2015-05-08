@@ -14,8 +14,9 @@
   			<version>2.5.4</version>
   			<executions>
   				<execution>
+  					<id>NodeSpawner</id>
   					<goals>
-  						<goal>attached</goal>
+  						<goal>assembly</goal>
   					</goals>
   					<phase>package</phase>
   					<configuration>
@@ -27,6 +28,29 @@
   								<mainClass>com.epiphan.qa.grid.NodeSpawner</mainClass>
   							</manifest>
   						</archive>
+  						<finalName>spawn</finalName>
+  						<appendAssemblyId>false</appendAssemblyId>
+  					</configuration>
+  				</execution>
+  				<execution>
+  					<id>GridNode</id>
+  					<goals>
+  						<goal>assembly</goal>
+  					</goals>
+  					<phase>package</phase>
+  					<configuration>
+  						<descriptorRefs>
+  							<descripterRef>jar-with-dependencies</descripterRef>
+  						</descriptorRefs>
+  						<archive>
+  							<manifest>
+  								<mainClass>org.openqa.grid.selenium.GridLauncher</mainClass>
+  								<packageName>com.epiphan.qa.grid</packageName>
+  								<packageName>org.openqa.grid.selenium</packageName>
+  							</manifest>
+  						</archive>
+  						<finalName>grid</finalName>
+  						<appendAssemblyId>false</appendAssemblyId>
   					</configuration>
   				</execution>
   			</executions>

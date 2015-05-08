@@ -47,8 +47,8 @@ public class NodeSpawner {
 		JarFileAttributes attributes = getJarFile(args);
 		Properties properties = new Properties();
 		
-		//properties.load(NodeSpawner.class.getResourceAsStream("/spawner.properties"));
-		long interval = 1000; //Long.parseLong((String) properties.get("defaultInterval"));
+		properties.load(NodeSpawner.class.getResourceAsStream("spawner.properties"));
+		long interval = Long.parseLong((String) properties.get("defaultInterval"));
 		while(true){
 			continuouslyRestart(attributes, interval);
 			Thread.sleep(interval);
