@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MD-3993"
+           tests="1"
+           failures="1"
+           errors="0"
+           skipped="0"
+           time="0.588">
+  <properties />
+            <testcase name="doTest" time="0.588" classname="com.epiphan.qa.tests.MD3993">
+                <failure type="org.openqa.selenium.remote.UnreachableBrowserException"
+                  message="Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8e7ca8e37638dc3091b2440b90a1d8686f&apos;, time: &apos;2015-02-27 09:10:26&apos;
+System info: host: &apos;lin-nuc&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;3.16.0-36-generic&apos;, java.version: &apos;1.7.0_79&apos;
+Driver info: driver.version: RemoteWebDriver"
+              >
+<![CDATA[org.openqa.selenium.remote.UnreachableBrowserException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'lin-nuc', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '3.16.0-36-generic', java.version: '1.7.0_79'
+Driver info: driver.version: RemoteWebDriver
+  org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:593)
+  org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:240)
+  org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:126)
+  org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:153)
+  com.epiphan.qa.tests.TestEnvironment.startDriver(TestEnvironment.java:42)
+  com.epiphan.qa.tests.MD3993.doTest(MD3993.java:17)
+  sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+  sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  java.lang.reflect.Method.invoke(Method.java:606)
+  org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+  org.testng.internal.Invoker.invokeMethod(Invoker.java:696)
+  org.testng.internal.Invoker.invokeTestMethod(Invoker.java:882)
+  org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:75)
+  org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:14)
+  java.util.concurrent.FutureTask.run(FutureTask.java:262)
+  java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+  java.util.concurrent.FutureTask.run(FutureTask.java:262)
+  java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+  java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+  java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 192.168.114.111:4444 [/192.168.114.111] failed: Connection refused
+  org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:142)
+  org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)
+  org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
+  org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
+  org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
+  org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
+  org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
+  org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+  org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
+  org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+  org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:126)
+  org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:72)
+  org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:133)
+  org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)
+  org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:240)
+  org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:126)
+  org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:153)
+  com.epiphan.qa.tests.TestEnvironment.startDriver(TestEnvironment.java:42)
+  com.epiphan.qa.tests.MD3993.doTest(MD3993.java:17)
+  sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+  sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  java.lang.reflect.Method.invoke(Method.java:606)
+  org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+  org.testng.internal.Invoker.invokeMethod(Invoker.java:696)
+  org.testng.internal.Invoker.invokeTestMethod(Invoker.java:882)
+  org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:75)
+  org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:14)
+  java.util.concurrent.FutureTask.run(FutureTask.java:262)
+  java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+  java.util.concurrent.FutureTask.run(FutureTask.java:262)
+  java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+  java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+  java.lang.Thread.run(Thread.java:745)
+Caused by: java.net.ConnectException: Connection refused
+  java.net.PlainSocketImpl.socketConnect(Native Method)
+  java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+  java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+  java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+  java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+  java.net.Socket.connect(Socket.java:579)
+  org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:72)
+  org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:125)
+  org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)
+  org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
+  org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
+  org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
+  org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
+  org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
+  org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+  org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
+  org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+  org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:126)
+  org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:72)
+  org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:133)
+  org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)
+  org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:240)
+  org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:126)
+  org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:153)
+  com.epiphan.qa.tests.TestEnvironment.startDriver(TestEnvironment.java:42)
+  com.epiphan.qa.tests.MD3993.doTest(MD3993.java:17)
+  sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+  sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  java.lang.reflect.Method.invoke(Method.java:606)
+  org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+  org.testng.internal.Invoker.invokeMethod(Invoker.java:696)
+  org.testng.internal.Invoker.invokeTestMethod(Invoker.java:882)
+  org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:75)
+  org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:14)
+  java.util.concurrent.FutureTask.run(FutureTask.java:262)
+  java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+  java.util.concurrent.FutureTask.run(FutureTask.java:262)
+  java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+  java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+  java.lang.Thread.run(Thread.java:745)
+]]>
+      </failure>
+
+          </testcase>
+  
+  
+  
+</testsuite>
