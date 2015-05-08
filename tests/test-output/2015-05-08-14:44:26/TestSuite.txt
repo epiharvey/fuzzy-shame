@@ -1,0 +1,50 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.32 sec <<< FAILURE! - in TestSuite
+doTest(com.epiphan.qa.tests.MD3993)  Time elapsed: 0.795 sec  <<< FAILURE!
+org.openqa.selenium.WebDriverException: Error forwarding the new session Empty pool of VM for setup Capabilities [{browserName=firefox}]
+Command duration or timeout: 241 milliseconds
+Build info: version: '2.45.0', revision: '5017cb8e7ca8e37638dc3091b2440b90a1d8686f', time: '2015-02-27 09:10:26'
+System info: host: 'lin-nuc', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '3.16.0-36-generic', java.version: '1.7.0_79'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:240)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:126)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:153)
+	at com.epiphan.qa.tests.TestEnvironment.startDriver(TestEnvironment.java:42)
+	at com.epiphan.qa.tests.MD3993.doTest(MD3993.java:17)
+Caused by: org.openqa.grid.common.exception.GridException: Error forwarding the new session Empty pool of VM for setup Capabilities [{browserName=firefox}]
+	at org.openqa.grid.web.servlet.handler.RequestHandler.process(RequestHandler.java:114)
+	at org.openqa.grid.web.servlet.DriverServlet.process(DriverServlet.java:83)
+	at org.openqa.grid.web.servlet.DriverServlet.doPost(DriverServlet.java:67)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.seleniumhq.jetty7.servlet.ServletHolder.handle(ServletHolder.java:565)
+	at org.seleniumhq.jetty7.servlet.ServletHandler.doHandle(ServletHandler.java:479)
+	at org.seleniumhq.jetty7.server.session.SessionHandler.doHandle(SessionHandler.java:225)
+	at org.seleniumhq.jetty7.server.handler.ContextHandler.doHandle(ContextHandler.java:1031)
+	at org.seleniumhq.jetty7.servlet.ServletHandler.doScope(ServletHandler.java:406)
+	at org.seleniumhq.jetty7.server.session.SessionHandler.doScope(SessionHandler.java:186)
+	at org.seleniumhq.jetty7.server.handler.ContextHandler.doScope(ContextHandler.java:965)
+	at org.seleniumhq.jetty7.server.handler.ScopedHandler.handle(ScopedHandler.java:117)
+	at org.seleniumhq.jetty7.server.handler.HandlerWrapper.handle(HandlerWrapper.java:111)
+	at org.seleniumhq.jetty7.server.Server.handle(Server.java:349)
+	at org.seleniumhq.jetty7.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:452)
+	at org.seleniumhq.jetty7.server.BlockingHttpConnection.handleRequest(BlockingHttpConnection.java:47)
+	at org.seleniumhq.jetty7.server.AbstractHttpConnection.content(AbstractHttpConnection.java:894)
+	at org.seleniumhq.jetty7.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:948)
+	at org.seleniumhq.jetty7.http.HttpParser.parseNext(HttpParser.java:857)
+	at org.seleniumhq.jetty7.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.seleniumhq.jetty7.server.BlockingHttpConnection.handle(BlockingHttpConnection.java:66)
+	at org.seleniumhq.jetty7.server.bio.SocketConnector$ConnectorEndPoint.run(SocketConnector.java:254)
+	at org.seleniumhq.jetty7.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:599)
+	at org.seleniumhq.jetty7.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:534)
+	at java.lang.Thread.run(Thread.java:745)
+
