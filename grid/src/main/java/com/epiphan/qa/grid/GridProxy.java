@@ -15,6 +15,7 @@ import org.openqa.grid.internal.Registry;
 import org.openqa.grid.internal.TestSession;
 import org.openqa.grid.selenium.proxy.DefaultRemoteProxy;
 
+import com.epiphan.qa.grid.NodeKillerServlet;
 /**
  * This proxy, when injected into the grid, counts the number of tests sent
  * to each node. Once a node has exceeded it's limit, the proxy invokes
@@ -122,6 +123,7 @@ public class GridProxy  extends DefaultRemoteProxy {
 					return;
 				}
 			}
+			
 		}
 		
 		private void shutDownNode() {
