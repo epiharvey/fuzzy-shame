@@ -1,6 +1,7 @@
 package com.epiphan.qa.grid;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -47,7 +48,12 @@ public class NodeSpawner {
 		JarFileAttributes attributes = getJarFile(args);
 		Properties properties = new Properties();
 		
-		properties.load(NodeSpawner.class.getResourceAsStream("spawner.properties"));
+		FileInputStream file = new FileInputStream("./grid.properties");
+		properties.load(file);
+		file.close();
+		
+		System.out.println("read props. spawning");
+		
 		long interval = Long.parseLong((String) properties.get("defaultInterval"));
 		while(true){
 			continuouslyRestart(attributes, interval);

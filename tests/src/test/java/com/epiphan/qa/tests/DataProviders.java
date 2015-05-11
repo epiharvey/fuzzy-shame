@@ -1,14 +1,8 @@
 package com.epiphan.qa.tests;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 
 import org.apache.commons.lang3.StringUtils;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 
