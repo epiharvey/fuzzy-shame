@@ -21,9 +21,20 @@ tests for the WUI shared by the VGA Grid, Recorder Pro, and Pearl.
 
 ###<a name="21-building-blocks"></a>[2.1] Building Blocks###
 The Cornerstones of the UI automation framework are:
-* [Selenium](http://seleniumhq.org) - For WUI interaction
-* [TestNG](http://testng.org) - For test automation and reporting
-* [Apache Maven](http://maven.apache.org) - As the build system
+* [Selenium](http://seleniumhq.org) - A WUI automation framework which allows
+  Java programs to mimic the interactions of a human with a web page. Selenium
+  implements the W3C [WebDriver](http://www.w3.org/TR/webdriver) spec as it's
+  API. Selenium also provides functionality called Selenium Grid2, which allows
+  multiple machines to be networked together in order to run tests on multiple
+  OS/browser combinations.
+* [TestNG](http://testng.org) - A Java framework for unit and
+  integration testing similar to JUnit. TestNG allows the configuration of
+  tests into 'suites' and 'groups' which provides a great deal of flexibility
+  with regards to which tests to run, and when. TestNG also supports the
+  the passing of parameters to tests at runtime through an xml configuration
+  file
+* [Apache Maven](http://maven.apache.org) - A flexible Java build system with
+  configurable dependency management, and build
 * [Jenkins CI](http://jenkins-ci.org) - For easy build scheduling and pretty
   test reports
 
