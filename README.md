@@ -1,29 +1,29 @@
 #Epiphan WUI test automation#
 
-##<a name="1_table_of_contents"></a>[1] Table of Contents##
-* [[1] Table of Contents](#1_table_of_contents)
+##<a name="1-table-of-contents"></a>[1] Table of Contents##
+* [[1] Table of Contents](#1-table-of-contents)
 * [[2] About](#2_about)
-* [[3] Building Blocks](#3_building_blocks)
-* [[4] Setup](#4_setup)
-  * [[4.1] Using Git with Jenkins](#41_using_git_with_jenkins)
-    * [[4.1.1] Steps](#411_steps)
+* [[3] Building Blocks](#3-building-blocks)
+* [[4] Setup](#4-setup)
+  * [[4.1] Using Git with Jenkins](#41-using-git-with-jenkins)
+    * [[4.1.1] Steps](#411-steps)
 
 
-##<a name="2_about"></a>[2] About##
+##<a name="2-about"></a>[2] About##
 
 This repository contains the building blocks of
 a basic web UI test automation framework for use by Epiphan QA.
 
-###<a name="21_what_it_is"></a>[2.1] What it is###
+###<a name="21-what-it-is"></a>[2.1] What it is###
 * A framework for automating repetitive tests of the web interface on
   the VGA Grid, Recorder Pro, or Pearl.
 * Capable of running tests against multiple browser/platform combinations
   without modifications to the test code.
 
-###<a name="22_what_it_isnt"></a>[2.2] What it isn't###
+###<a name="22-what-it-isnt"></a>[2.2] What it isn't###
 * A framework for testing **anything other than wui**
 
-##<a name="3_building_blocks"></a>[3] Building Blocks##
+##<a name="3-building-blocks"></a>[3] Building Blocks##
 The Cornerstones of the UI automation framework are:
 * [Selenium](http://seleniumhq.org) - For WUI interaction
 * [TestNG](http://testng.org) - For test automation and reporting
@@ -38,9 +38,9 @@ Other components include:
 * [GitHub](http://github.org) - For SCM, and to make the system resilient to
   multiple simultaneous users writing tests
 
-##<a name="4_setup"></a>[4] Setup##
+##<a name="4-setup"></a>[4] Setup##
 
-###<a name="41_using_git_with_jenkins"></a>[4.1] Using Git with Jenkins###
+###<a name="41-using-git-with-jenkins"></a>[4.1] Using Git with Jenkins###
 Using Jenkins CI as a build manager allows us to run the latest version of the
 entire test system against (a) target(s) at specified times.
 Depending on the configuration of Jenkins, the tests can be run periodically
@@ -50,7 +50,7 @@ Depending on the configuration of Jenkins, the tests can be run periodically
 Additionally, Jenkins has a wide range of plugins available for such things as
 test reporting, and integration with Confluence / JIRA.
 
-####<a name="411_steps"></a>[4.1.1] Steps####
+####<a name="411-steps"></a>[4.1.1] Steps####
 1.  Install the latest version of Maven [version 3.3.3, at 2015-05-12]
 2.  Install the latest version of Git for your OS [version 1.9.1 at 2015-05-12]
 3.  Install the latest version of Jenkins [version 1.613 at 2015-05-12]
@@ -68,7 +68,7 @@ test reporting, and integration with Confluence / JIRA.
     Go to QA to get the repository cridentials.
 8.  Run a build to ensure that everything is set up correctly.
 
-####<a name="412_notes"></a>[4.1.2] Notes####
+####<a name="412-notes"></a>[4.1.2] Notes####
 * When first setting up a Jenkins project, it may be necessary to point Jenkins
   to the local Maven installation you want to use.
 * Feel free to play around with additional plugins for test reporting,
