@@ -45,6 +45,7 @@ The Cornerstones of the UI automation framework are:
   reports.
 
 Other components include:
+
 * [ReportNG](http://reportng.uncommons.org) - Improves on TestNG's default
   HTML and XML reports.
 * [Apache Commons Exec](http://commons.apache.org/exec/) - An Apache Commons
@@ -121,7 +122,7 @@ test reporting, and integration with Confluence / JIRA.
     number of builds to keep.
 7.  Under `Source Code Management` select `Git`  
     The repostiory location is `git://github.com/epiharvey/fuzzy-shame`  
-    Go to QA to get the repository cridentials.
+    See Ian Harvey in QA to get the repository cridentials. Bring a USB drive.
 8.  Run a build to ensure that everything is set up correctly.
 
 ####<a name="312-notes"></a>[3.1.2] Notes####
