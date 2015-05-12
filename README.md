@@ -31,7 +31,7 @@ Other components include:
 
 ##[3] Setup##
 
-###[3.1] Using Jenkins###
+###[3.1] Using Git with Jenkins###
 Using Jenkins CI as a build manager allows us to run the latest version of the
 entire test system against (a) target(s) at specified times.
 Depending on the configuration of Jenkins, the tests can be run periodically
@@ -41,16 +41,20 @@ Depending on the configuration of Jenkins, the tests can be run periodically
 Additionally, Jenkins has a wide range of plugins available for such things as
 test reporting, and integration with Confluence / JIRA.
 
-The steps to set up Jenkins with our test automation framework are as follows:
-
-1.  Install Maven
-2.  Install Jenkins
-3.  In Jenkins, under `Manage Jenkins`>`Manage Plugins`>`Available`
+####[3.1.1] Steps####
+1.  Install the latest version of Maven [version 3.3.3, at 2015-05-12]
+2.  Install the latest version of Git for your OS [version 1.9.1 at 2015-05-12]
+3.  Install the latest version of Jenkins [version 1.613 at 2015-05-12]
+4.  In Jenkins, under `Manage Jenkins`>`Manage Plugins`>`Available`
     select `Git Client Plugin` and click
     `Download now and install after restart`
-4.  Create a `New Item` and give it a suitable name, select `Maven Project` as
+5.  Create a `New Item` and give it a suitable name, select `Maven Project` as
     the project type and press `OK`
-5.  By default, Jenkins keeps all build artifacts until the end of time.
-    I recommend that you select `Discard Old Builds` unless you have a very
-    good reason for doing otherwise, setting an appropriate time to live, or
+6.  By default, Jenkins keeps all build artifacts until the end of time.
+    I recommend that you select `Discard Old Builds` (unless you have a very
+    good reason for doing otherwise), setting an appropriate time to live, or
     number of builds to keep.
+7.  Under `Source Code Management` select `Git`
+    The repostiory location is `git://github.com/epiharvey/fuzzy-shame`
+    Go to QA to get the repository cridentials.
+8.  Run a build to ensure that everything is set up correctly.
