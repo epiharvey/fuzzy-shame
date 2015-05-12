@@ -3,6 +3,10 @@
 ##<a name="1_table_of_contents"></a>[1] Table of Contents##
 * [[1] Table of Contents](#1_table_of_contents)
 * [[2] About](#2_about)
+* [[3] Building Blocks](#3_building_blocks)
+* [[4] Setup](#4_setup)
+  * [[4.1] Using Git with Jenkins](#41_using_git_with_jenkins)
+    * [[4.1.1] Steps](#411_steps)
 
 
 ##<a name="2_about"></a>[2] About##
