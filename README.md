@@ -19,14 +19,14 @@ The Cornerstones of the UI automation framework are:
 * [Selenium](http://seleniumhq.org) - For WUI interaction
 * [TestNG](http://testng.org) - For test automation and reporting
 * [Apache Maven](http://maven.apache.org) - As the build system
+* [Jenkins CI](http://jenkins-ci.org) - For easy build scheduling and pretty
+  test reports
 
 Other projects used include:
 * [ReportNG](http://reportng.uncommons.org) - For imporved Test Reporting
 * [Apache Commons Exec](http://commons.apache.org/exec/) - For process
   execution from within java
-* *more later. maybe jenkins*
 
 ##[3] Setup##
 1. Install Maven
-2. Clone repository
-3.
+2. Install Jenkins
