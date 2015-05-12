@@ -53,6 +53,13 @@ Other components include:
 
 
 ###<a name="22-details"></a>[2.2] Details###
+This project is split up into two modules; `tests` and `grid`  
+
+The automated test system is made up of a 'hub' and some number of 'nodes'.  
+Each node is capable of controlling a configurable number of browser instances.
+For example, one node could be in control of 10 Firefox browsers, 6 instances of
+Chrome, and 1 of Internet Explorer. Each of these browser instances is
+a 'test slot' which 
 
 ##<a name="3-setup"></a>[3] Setup##
 
