@@ -2,10 +2,9 @@
 
 ##<a name="1-table-of-contents"></a>[1] Table of Contents##
 * [[1] Table of Contents](#1-table-of-contents)
-* [[2] About](#2_about)
+* [[2] About](#2-about)
   * [[2.1] Building Blocks](#21-building-blocks)
-  * [[2.2] What it is](#22-what-it-is)
-  * [[2.3] What it is not](#23-what-it-is-not)
+  * [[2.2] Details](#22-details)
 * [[3] Setup](#3-setup)
   * [[3.1] Using Git with Jenkins](#31-using-git-with-jenkins)
     * [[3.1.1] Steps](#311-steps)
@@ -15,45 +14,45 @@
 ##<a name="2-about"></a>[2] About##
 
 This repository contains the building blocks of
-a basic web UI test automation framework for use by Epiphan QA.
+a basic web UI test automation framework for use by Epiphan QA.  
 This framework is meant to provide a simple base upon which to build automated
 tests for the WUI shared by the VGA Grid, Recorder Pro, and Pearl.
+Additionally, this framework is meant to overcome some problems with the
+default Selenium Grid2 system.  
+This is **not** a framework for testing **anything other than WUI**.
 
 ###<a name="21-building-blocks"></a>[2.1] Building Blocks###
 The Cornerstones of the UI automation framework are:
-* [Selenium](http://seleniumhq.org) - A WUI automation framework which allows
-  Java programs to mimic the interactions of a human with a web page. Selenium
-  implements the W3C [WebDriver](http://www.w3.org/TR/webdriver) spec as it's
-  API. Selenium also provides functionality called Selenium Grid2, which allows
-  multiple machines to be networked together in order to run tests on multiple
-  OS/browser combinations.
+* [Selenium](http://seleniumhq.org) - A  *Web User Interface* (WUI) automation
+  framework which allows Java programs to mimic the interactions of a human
+  with a web page. Selenium implements the W3C
+  [WebDriver](http://www.w3.org/TR/webdriver) spec as it's API. Selenium also
+  provides functionality called Selenium Grid2, which allows multiple machines
+  to be networked together in order to run tests on multiple OS/browser
+  combinations.
 * [TestNG](http://testng.org) - A Java framework for unit and
   integration testing similar to JUnit. TestNG allows the configuration of
   tests into 'suites' and 'groups' which provides a great deal of flexibility
   with regards to which tests to run, and when. TestNG also supports the
   the passing of parameters to tests at runtime through an xml configuration
-  file
+  file.
 * [Apache Maven](http://maven.apache.org) - A flexible Java build system with
-  configurable dependency management, and build
-* [Jenkins CI](http://jenkins-ci.org) - For easy build scheduling and pretty
-  test reports
+  configurable dependency management.
+* [Jenkins CI](http://jenkins-ci.org) - A popular *Continuous Integration* (CI)
+  system used to schedule automatic builds and to aggregate build and test
+  reports.
 
 Other components include:
-* [ReportNG](http://reportng.uncommons.org) - For imporved Test Reporting
-* [Apache Commons Exec](http://commons.apache.org/exec/) - For process
-  execution from within java
-* [GitHub](http://github.org) - For SCM, and to make the system resilient to
-  multiple simultaneous users writing tests
+* [ReportNG](http://reportng.uncommons.org) - Improves on TestNG's default
+  HTML and XML reports.
+* [Apache Commons Exec](http://commons.apache.org/exec/) - An Apache Commons
+  library for process execution from within Java programs. Commons Exec allows
+  Java programs to spawn processes, and to continuously monitor the output of
+  those processes while performing other tasks.
+* [GitHub](http://github.org) - A popular Git repository host.
 
 
-###<a name="21-what-it-is"></a>[2.1] What it is###
-* A framework for automating repetitive tests of the web interface on
-  the VGA Grid, Recorder Pro, or Pearl.
-* Capable of running tests against multiple browser/platform combinations
-  without modifications to the test code.
-
-###<a name="22-what-it-is-not"></a>[2.2] What it is not###
-* A framework for testing **anything other than wui**
+###<a name="22-details"></a>[2.2] Details###
 
 ##<a name="3-setup"></a>[3] Setup##
 
