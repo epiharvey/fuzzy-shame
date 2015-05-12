@@ -55,11 +55,33 @@ Other components include:
 ###<a name="22-details"></a>[2.2] Details###
 This project is split up into two modules; `tests` and `grid`  
 
-The automated test system is made up of a 'hub' and some number of 'nodes'.  
-Each node is capable of controlling a configurable number of browser instances.
-For example, one node could be in control of 10 Firefox browsers, 6 instances of
-Chrome, and 1 of Internet Explorer. Each of these browser instances is
-a 'test slot' which 
+The actual automated test system (`grid`) is made up of a 'hub' and some
+number of 'nodes'.  
+Nodes can be distributed over many machines on the network. This allows the
+testing of many OS/browser combinations simultaneously. Each node is capable of
+controlling a configurable number of browser instances. For example, one node
+could be in control of 10 Firefox browsers, 6 instances of Chrome, and 1 of
+Internet Explorer. Each of these browser instances is a 'test slot' which can
+accommodate 1 test at a time.
+The hub is the central point to which the tests and the nodes connect. All data
+within the grid flows through the hub. When a test program connects to the hub,
+it is assigned to a node with an open test slot matching it's requirements.
+
+Unfortunately, vanilla Selenium nodes are prone to getting stuck under some
+circumstances. Whenever some event causes a Selenium-controlled browser
+instance to spawn a new OS-level window (e.g. a Firefox download menu), the
+WebDriver controlling that browser is unable to close or otherwise eliminate
+the window. This results in the browser hanging indefinitely (becoming dead).  
+In order to prevent all test slots from eventually filling with dead browsers,
+each node can be injected with a custom servlet, and made to communicate with
+the hub via a custom proxy. The proxy counts the number of tests sent to each
+node, and once a node has been sent as many tests as it has test slots, the
+proxy sends a message to the servlet causing the node to terminate.  
+Every node (including the hub) can also be run through a watchdog process.
+This watchdog simply checks the node every few seconds, and starts a fresh node
+if it finds that the node has terminated. The watchdog does not care if the
+node was terminated by a crash or by deliberate action.
+
 
 ##<a name="3-setup"></a>[3] Setup##
 
