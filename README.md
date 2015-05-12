@@ -45,5 +45,5 @@ The steps to set up Jenkins with our test automation framework are as follows:
 
 1.  Install Maven
 2.  Install Jenkins
-3.  In Jenkins, under `Manage Jenkins>Manage Plugins>Available`
+3.  In Jenkins, under `Manage Jenkins`>`Manage Plugins`>`Available`
     select `Git Client Plugin` and install
