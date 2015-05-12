@@ -6,8 +6,8 @@ This repository contains the building blocks of
 a basic web UI test automation framework for use by Epiphan QA.
 
 ###[1.1] What it is###
-* A framework for automating repetitive tests of the web interface on the grid,
-  recorder pro, or pearl.
+* A framework for automating repetitive tests of the web interface on
+  the VGA Grid, Recorder Pro, or Pearl.
 * Capable of running tests against multiple browser/platform combinations
   without modifications to the test code.
 
@@ -22,11 +22,28 @@ The Cornerstones of the UI automation framework are:
 * [Jenkins CI](http://jenkins-ci.org) - For easy build scheduling and pretty
   test reports
 
-Other projects used include:
+Other components include:
 * [ReportNG](http://reportng.uncommons.org) - For imporved Test Reporting
 * [Apache Commons Exec](http://commons.apache.org/exec/) - For process
   execution from within java
+* [GitHub](http://github.org) - For SCM, and to make the system resilient to
+  multiple simultaneous users writing tests
 
 ##[3] Setup##
-1. Install Maven
-2. Install Jenkins
+
+###[3.1] Using Jenkins###
+Using Jenkins CI as a build manager allows us to run the latest version of the
+entire test system against (a) target(s) at specified times.
+Depending on the configuration of Jenkins, the tests can be run periodically
+(for example, every day at midnight), or when triggered by certain events
+(for example, on every commit to a Git repository containing the test code).
+
+Additionally, Jenkins has a wide range of plugins available for such things as
+test reporting, and integration with Confluence / JIRA.
+
+The steps to set up Jenkins with our test automation framework are as follows:
+
+1.  Install Maven
+2.  Install Jenkins
+3.  In Jenkins, under `Manage Jenkins>Manage Plugins>Available`
+    select `Git Client Plugin` and install
