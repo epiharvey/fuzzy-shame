@@ -54,7 +54,7 @@ test reporting, and integration with Confluence / JIRA.
     I recommend that you select `Discard Old Builds` (unless you have a very
     good reason for doing otherwise), setting an appropriate time to live, or
     number of builds to keep.
-7.  Under `Source Code Management` select `Git`
-    The repostiory location is `git://github.com/epiharvey/fuzzy-shame`
+7.  Under `Source Code Management` select `Git`  
+    The repostiory location is `git://github.com/epiharvey/fuzzy-shame`  
     Go to QA to get the repository cridentials.
 8.  Run a build to ensure that everything is set up correctly.
