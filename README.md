@@ -46,4 +46,11 @@ The steps to set up Jenkins with our test automation framework are as follows:
 1.  Install Maven
 2.  Install Jenkins
 3.  In Jenkins, under `Manage Jenkins`>`Manage Plugins`>`Available`
-    select `Git Client Plugin` and install
+    select `Git Client Plugin` and click
+    `Download now and install after restart`
+4.  Create a `New Item` and give it a suitable name, select `Maven Project` as
+    the project type and press `OK`
+5.  By default, Jenkins keeps all build artifacts until the end of time.
+    I recommend that you select `Discard Old Builds` unless you have a very
+    good reason for doing otherwise, setting an appropriate time to live, or
+    number of builds to keep.
