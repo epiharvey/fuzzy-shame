@@ -4,7 +4,8 @@
 * [[1] Table of Contents](#1-table-of-contents)
 * [[2] About](#2-about)
   * [[2.1] Building Blocks](#21-building-blocks)
-  * [[2.2] Details](#22-details)
+  * [[2.2] Grid](#22-grid)
+  * [[2.3] Tests](#23-tests)
 * [[3] Setup](#3-setup)
   * [[3.1] Using Git with Jenkins](#31-using-git-with-jenkins)
     * [[3.1.1] Steps](#311-steps)
@@ -52,9 +53,7 @@ Other components include:
   those processes while performing other tasks.
 * [GitHub](http://github.org) - A popular Git repository host.
 
-
-###<a name="22-details"></a>[2.2] Details###
-This project is split up into two modules; `tests` and `grid`  
+###<a name="22-grid"></a>[2.2] Grid###
 
 The actual automated test system (`grid`) is made up of a 'hub' and some
 number of 'nodes'.  
@@ -72,7 +71,8 @@ Unfortunately, vanilla Selenium nodes are prone to getting stuck under some
 circumstances. Whenever some event causes a Selenium-controlled browser
 instance to spawn a new OS-level window (e.g. a Firefox download menu), the
 WebDriver controlling that browser is unable to close or otherwise eliminate
-the window. This results in the browser hanging indefinitely (becoming dead).  
+the window. This results in the browser hanging indefinitely (becoming dead).
+
 In order to prevent all test slots from eventually filling with dead browsers,
 each node can be injected with a custom servlet, and made to communicate with
 the hub via a custom proxy. The proxy counts the number of tests sent to each
@@ -83,10 +83,17 @@ This watchdog simply checks the node every few seconds, and starts a fresh node
 if it finds that the node has terminated. The watchdog does not care if the
 node was terminated by a crash or by deliberate action.
 
+###<a name="23-tests"></a>[2.3] Tests###
+
+The tests to be automated are found in the `tests` module.  
+Unlike `grid` this module does not produce any permanent artifacts when built.
+This means that the
+module must be built from scratch each time tests are run.
 
 ##<a name="3-setup"></a>[3] Setup##
 
 ###<a name="31-using-git-with-jenkins"></a>[3.1] Using Git with Jenkins###
+
 Using Jenkins CI as a build manager allows us to run the latest version of the
 entire test system against (a) target(s) at specified times.
 Depending on the configuration of Jenkins, the tests can be run periodically
@@ -99,6 +106,7 @@ headless machines, and has a wide range of plugins available for such things as
 test reporting, and integration with Confluence / JIRA.
 
 ####<a name="311-steps"></a>[3.1.1] Steps####
+
 1.  Install the latest version of Maven [version 3.3.3 at 2015-05-12]
 2.  Install the latest version of Git for your OS [version 1.9.1 at 2015-05-12]
 3.  Install the latest version of Jenkins [version 1.613 at 2015-05-12]
@@ -117,6 +125,7 @@ test reporting, and integration with Confluence / JIRA.
 8.  Run a build to ensure that everything is set up correctly.
 
 ####<a name="312-notes"></a>[3.1.2] Notes####
+
 * When first setting up a Jenkins project, it may be necessary to point Jenkins
   to the local Maven installation you want to use.
 * Feel free to play around with additional plugins for test reporting,
@@ -126,4 +135,5 @@ test reporting, and integration with Confluence / JIRA.
   to `/fuzzy-shame/tests/pom.xml` instead of `/fuzzy-shame/pom.xml`
 
 ###<a name="32-using-git-with-maven"></a>[3.2] Using Git with Maven###
-If you do
+
+TODO
