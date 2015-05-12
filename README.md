@@ -1,20 +1,20 @@
 #Epiphan WUI test automation#
 
-##[1] About##
+##<a name="1_about"></a>[1] About##
 
 This repository contains the building blocks of
 a basic web UI test automation framework for use by Epiphan QA.
 
-###[1.1] What it is###
+###<a name="11_what_it_is"></a>[1.1] What it is###
 * A framework for automating repetitive tests of the web interface on
   the VGA Grid, Recorder Pro, or Pearl.
 * Capable of running tests against multiple browser/platform combinations
   without modifications to the test code.
 
-###[1.2] What it isn't###
+###<a name="12_what_it_isnt"></a>[1.2] What it isn't###
 * A framework for testing **anything other than wui**
 
-##[2] Building Blocks##
+##<a name="2_building_blocks"></a>[2] Building Blocks##
 The Cornerstones of the UI automation framework are:
 * [Selenium](http://seleniumhq.org) - For WUI interaction
 * [TestNG](http://testng.org) - For test automation and reporting
@@ -29,9 +29,9 @@ Other components include:
 * [GitHub](http://github.org) - For SCM, and to make the system resilient to
   multiple simultaneous users writing tests
 
-##[3] Setup##
+##<a name="3_setup"></a>[3] Setup##
 
-###[3.1] Using Git with Jenkins###
+###<a name="31_using_git_with_jenkins"></a>[3.1] Using Git with Jenkins###
 Using Jenkins CI as a build manager allows us to run the latest version of the
 entire test system against (a) target(s) at specified times.
 Depending on the configuration of Jenkins, the tests can be run periodically
@@ -41,7 +41,7 @@ Depending on the configuration of Jenkins, the tests can be run periodically
 Additionally, Jenkins has a wide range of plugins available for such things as
 test reporting, and integration with Confluence / JIRA.
 
-####[3.1.1] Steps####
+####<a name="311_steps"></a>[3.1.1] Steps####
 1.  Install the latest version of Maven [version 3.3.3, at 2015-05-12]
 2.  Install the latest version of Git for your OS [version 1.9.1 at 2015-05-12]
 3.  Install the latest version of Jenkins [version 1.613 at 2015-05-12]
@@ -58,3 +58,10 @@ test reporting, and integration with Confluence / JIRA.
     The repostiory location is `git://github.com/epiharvey/fuzzy-shame`  
     Go to QA to get the repository cridentials.
 8.  Run a build to ensure that everything is set up correctly.
+
+####<a name="312_notes"></a>[3.1.2] Notes####
+* When first setting up a Jenkins project, it may be necessary to point Jenkins
+  to the local Maven installation you want to use.
+* Feel free to play around with additional plugins for test reporting,
+  Confluence/JIRA integration, etc... Jenkins can't push to Git, so you can't
+  break anything important.
