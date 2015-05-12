@@ -23,6 +23,7 @@ This is **not** a framework for testing **anything other than WUI**.
 
 ###<a name="21-building-blocks"></a>[2.1] Building Blocks###
 The Cornerstones of the UI automation framework are:
+
 * [Selenium](http://seleniumhq.org) - A  *Web User Interface* (WUI) automation
   framework which allows Java programs to mimic the interactions of a human
   with a web page. Selenium implements the W3C
