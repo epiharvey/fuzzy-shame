@@ -1,6 +1,9 @@
 #Epiphan WUI test automation#
 
 ##<a name="1-table-of-contents"></a>[1] Table of Contents##
+
+In this document, the following sections should be present.
+
 * [[1] Table of Contents](#1-table-of-contents)
 * [[2] About](#2-about)
   * [[2.1] Building Blocks](#21-building-blocks)
@@ -10,6 +13,10 @@
   * [[3.1] Using Git with Jenkins](#31-using-git-with-jenkins)
     * [[3.1.1] Steps](#311-steps)
     * [[3.1.2] Notes](#312-notes)
+  * [[3.2] Using Git with Maven](#32-using-git-with-maven)
+    * [[3.2.1] Steps](#321-steps)
+  * [[3.3] Setting up the Grid](#33-setting-up-the-grid)
+    * [[3.3.1] Steps](#331-steps)
 
 
 ##<a name="2-about"></a>[2] About##
@@ -152,4 +159,51 @@ even with multiple parties contributing new code, or alterations.
     need to begin writing and executing tests.
 5.  If you do not already have a copy of `grid.jar` or `spawn.jar`, build the
     `grid` module to obtain both.
-6.  
+
+###<a name="33-setting-up-the-grid"></a>[3.3] Setting up the Grid##
+
+Before using the automated test system, it is necessary to provide an
+infrastructure upon which tests can be run. This entails setting up a
+modified Selenium grid as described in [[2.2]](#22-grid)  
+
+####<a name="331-steps"></a>[3.3.1] Steps####
+
+1.  Obtain working copies of both `grid.jar` and `spawn.jar`. these can be
+    created by running `mvn clean install` on the `grid` module.
+    The files `grid.jar`, `spawn.jar`, and `grid-<version>.jar` will be created
+    in `/fuzzy-shame/grid/target/`. Pay no attention to `grid-<version>.jar`. It
+    contains all the classes in the `grid` module ,and will be installed to
+    your local Maven repository for use in other projects. You may leave
+    `grid.jar` and `spawn.jar` in place, or move them to a convenient location
+    on your local filesystem.
+2.  ensure that a file called `grid.properties` exists in the same directory as
+    `grid.jar` and `spawn.jar`. Enusre that `grid.properties` contains the
+    lines `defaultInterval=10000` and `uniqueSessionCount=10`
+2.  Create a Selenuim hub. To do this, run
+    `java -jar spawn.jar grid.jar -role hub`.
+    You may optionally specify the `-port <port>` parameter to set the port on
+    which the hub will listen for incoming connections from nodes
+    (default 4444)and/or the `-hubConfig <file.json>` parameter. to specify
+    a configuration file for the hub.
+3.  Create Selenium nodes. The hub cannot run tests on its own, it simply
+    delegates work to nodes which control browser instances. To create a node,
+    run
+    `java -jar spawn.jar grid.jar -role node
+    -hub http://<hub IP address>/grid/register`
+    You may set the `-nodeConfig <file.json>` parameter to specify a
+    configuration file for the node.
+
+####<a name="332-notes"></a>[3.3.2] Notes####
+
+* The reason we run `grid.jar` through `spawn.jar` rather than through
+  `java -jar` is that `spawn.jar` acts as a watchdog, restarting dead nodes
+  as described in [[2.2]](#22-grid)
+* When running through `spawn.jar`, provide program arguments just as you
+  normally would. The full list of command line arguments for `grid.jar` can
+  be found by running `java -jar grid.jar -h`
+
+##<a name="4-use"></a>[4] Use##
+
+Before running tests, it is necessary to provide the infrastructure upon which
+tests will be run. In order to do this you must have working copies of both
+`grid.jar` and `spawn.jar`.
