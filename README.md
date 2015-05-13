@@ -6,21 +6,23 @@ In this document, the following sections should be present.
 
 * [[1] Table of Contents](#1-table-of-contents)
 * [[2] About](#2-about)
-  * [[2.1] Building Blocks](#21-building-blocks)
-  * [[2.2] Grid](#22-grid)
-  * [[2.3] Tests](#23-tests)
+    * [[2.1] Building Blocks](#21-building-blocks)
+    * [[2.2] General Architecture](#22-general-architecture)
+    * [[2.3] Grid](#23-grid)
+    * [[2.4] Tests](#24-tests)
 * [[3] Setup](#3-setup)
-  * [[3.1] Using Git with Jenkins](#31-using-git-with-jenkins)
-    * [[3.1.1] Steps](#311-steps)
-    * [[3.1.2] Notes](#312-notes)
-  * [[3.2] Using Git with Maven](#32-using-git-with-maven)
-    * [[3.2.1] Steps](#321-steps)
-    * [[3.2.2] Notes](#322-notes)
-  * [[3.3] Setting up the Grid](#33-setting-up-the-grid)
-    * [[3.3.1] Steps](#331-steps)
-    * [[3.3.1] Notes](#332-notes)
-  * [[4] Use](#4-use)
+    * [[3.1] Using Git with Jenkins](#31-using-git-with-jenkins)
+        * [[3.1.1] Steps](#311-steps)
+        * [[3.1.2] Notes](#312-notes)
+    * [[3.2] Using Git with Maven](#32-using-git-with-maven)
+        * [[3.2.1] Steps](#321-steps)
+        * [[3.2.2] Notes](#322-notes)
+    * [[3.3] Setting up the Grid](#33-setting-up-the-grid)
+        * [[3.3.1] Steps](#331-steps)
+        * [[3.3.1] Notes](#332-notes)
+* [[4] Use](#4-use)
 
+\pagebreak
 
 ##<a name="2-about"></a>[2] About##
 
@@ -64,7 +66,32 @@ Other components include:
   those processes while performing other tasks.
 * [GitHub](http://github.org) - A popular Git repository host.
 
-###<a name="22-grid"></a>[2.2] Grid###
+###<a name="22-general-architecture"></a>[2.2] General Architecture###
+
+The Maven project for the automated test system has the following structure:
+
+```
+fuzzy-shame
+    |-grid
+    |  |-pom.xml
+    |  |-src
+    |  |  |-main
+    |  |      |-java/
+    |  |-target/
+    |  |-test-output/
+    |-tests
+    |  |-pom.xml
+    |  |-testng.xml
+    |  |-src
+    |  |  |-test
+    |  |     |-java/
+    |  |-target/
+    |  |-test-output/
+    |-target/
+    |-test-output/
+```
+
+###<a name="23-grid"></a>[2.3] Grid###
 
 The actual automated test system (`grid`) is made up of a 'hub' and some
 number of 'nodes'.  
@@ -94,7 +121,7 @@ This watchdog simply checks the node every few seconds, and starts a fresh node
 if it finds that the node has terminated. The watchdog does not care if the
 node was terminated by a crash or by deliberate action.
 
-###<a name="23-tests"></a>[2.3] Tests###
+###<a name="24-tests"></a>[2.4] Tests###
 
 The tests to be automated are found in the `tests` module.  
 Unlike `grid` this module does not produce any permanent artifacts when built.
