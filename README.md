@@ -22,6 +22,7 @@ In this document, the following sections should be present.
         * [[3.3.1] Notes](#332-notes)
 * [[4] Use](#4-use)
     * [[4.1] Grid Options](#41-grid-options)
+    * [[4.2] Test Configuration](#42-test-configuration)
 
 \pagebreak
 
@@ -236,6 +237,9 @@ modified Selenium grid as described in [[2.2]](#22-grid)
 * When running through `spawn.jar`, provide program arguments just as you
   normally would. The full list of command line arguments for `grid.jar` can
   be found by running `java -jar grid.jar -h`
+* currently, running the grid through `spawner.jar` does not invoke the
+  custom servelets or proxies correctly.  
+  ***TODO*** update docs when this is fixed.
 
 ##<a name="4-use"></a>[4] Use##
 ###<a name="41-grid-options"></a>[4.1] Grid Options###
@@ -363,5 +367,5 @@ modified Selenium grid as described in [[2.2]](#22-grid)
 
 
 ```
-
+###<a name="42-test-configuration"></a>[4.2] Test Configuration###
 ***TODO***
