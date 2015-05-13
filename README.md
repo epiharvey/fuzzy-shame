@@ -72,23 +72,23 @@ The Maven project for the automated test system has the following structure:
 
 ```
 fuzzy-shame
-    |-grid
-    |  |-pom.xml
-    |  |-src
-    |  |  |-main
-    |  |      |-java/
-    |  |-target/
-    |  |-test-output/
-    |-tests
-    |  |-pom.xml
-    |  |-testng.xml
-    |  |-src
-    |  |  |-test
-    |  |     |-java/
-    |  |-target/
-    |  |-test-output/
-    |-target/
-    |-test-output/
+  |-grid
+  |  |-pom.xml
+  |  |-src
+  |  |  |-main
+  |  |      |-java/
+  |  |-target/
+  |  |-test-output/
+  |-tests
+  |  |-pom.xml
+  |  |-testng.xml
+  |  |-src
+  |  |  |-test
+  |  |     |-java/
+  |  |-target/
+  |  |-test-output/
+  |-target/
+  |-test-output/
 ```
 
 ###<a name="23-grid"></a>[2.3] Grid###
