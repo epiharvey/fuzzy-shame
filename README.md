@@ -203,7 +203,3 @@ modified Selenium grid as described in [[2.2]](#22-grid)
   be found by running `java -jar grid.jar -h`
 
 ##<a name="4-use"></a>[4] Use##
-
-Before running tests, it is necessary to provide the infrastructure upon which
-tests will be run. In order to do this you must have working copies of both
-`grid.jar` and `spawn.jar`.
