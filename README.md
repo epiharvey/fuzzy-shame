@@ -234,4 +234,8 @@ modified Selenium grid as described in [[2.2]](#22-grid)
   be found by running `java -jar grid.jar -h`
 
 ##<a name="4-use"></a>[4] Use##
-***TODO***
+###<a name="41-grid-options"></a>[4.1] Grid Options###
+
+```
+
+```
