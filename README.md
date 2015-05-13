@@ -21,6 +21,7 @@ In this document, the following sections should be present.
         * [[3.3.1] Steps](#331-steps)
         * [[3.3.1] Notes](#332-notes)
 * [[4] Use](#4-use)
+    * [[4.1] Grid Options](#41-grid-options)
 
 \pagebreak
 
@@ -191,6 +192,9 @@ even with multiple parties contributing new code, or alterations.
     `grid` module to obtain both.
 
 ####<a name="322-notes"></a>[3.2.2] Notes####
+* The full list of command line options for `grid.jar` can be found in
+  [[4.1]](#41-grid-options), or by running `java -jar grid.jar -h`
+
 ###<a name="33-setting-up-the-grid"></a>[3.3] Setting up the Grid##
 
 Before using the automated test system, it is necessary to provide an
@@ -237,5 +241,125 @@ modified Selenium grid as described in [[2.2]](#22-grid)
 ###<a name="41-grid-options"></a>[4.1] Grid Options###
 
 ```
+-hubConfig:
+  (hub) a JSON file following grid2 format that defines the hub
+    properties.
+
+-throwOnCapabilityNotPresent:
+  (hub) <true | false> default to true. If true, the hub will
+    reject test requests right away if no proxy is currently
+    registered that can host that capability.Set it to false to have
+    the request queued until a node supporting the capability is
+    added to the grid.
+
+-maxSession:
+  (node) max number of tests that can run at the same time on the
+    node, independently of the browser used.
+
+-hub:
+  (node) <http://localhost:4444/grid/register> : the url that will
+    be used to post the registration request. This option takes
+    precedence over -hubHost and -hubPort options.
+
+-hubPort:
+  (node) <xxxx> : the port listened by a hub the registration
+    request should be sent to. Default to 4444. Option -hub takes
+    precedence over this option.
+
+-registerCycle:
+  (node) how often in ms the node will try to register itself
+    again.Allow to restart the hub without having to restart the
+    nodes.
+
+-capabilityMatcher:
+  (hub) a class implementing the CapabilityMatcher interface.
+    Defaults to
+    org.openqa.grid.internal.utils.DefaultCapabilityMatcher. Specify
+    the logic the hub will follow to define if a request can be
+    assigned to a node.Change this class if you want to have the
+    matching process use regular expression instead of exact match
+    for the version of the browser for instance. All the nodes of a
+    grid instance will use the same matcher, defined by the registry.
+
+-nodeStatusCheckTimeout:
+  (node) in ms. Connection and socket timeout which is used for
+    node alive check.
+
+-timeout:
+  (node) <XXXX>  the timeout in seconds before the hub
+    automatically ends a test that hasn't had any activity in the
+    last X seconds. The browser will be released for another test to
+    use. This typically takes care of the client crashes.
+
+-port:
+  (hub & node) <xxxx> : the port the remote/hub will listen on.
+    Default to 4444.
+
+-hubHost:
+  (node) <IP | hostname> : the host address of a hub the
+    registration request should be sent to. Default to localhost.
+    Option -hub takes precedence over this option.
+
+-newSessionWaitTimeout:
+  (hub) <XXXX>. Default to no timeout ( -1 ) the time in ms after
+    which a new test waiting for a node to become available will time
+    out.When that happens, the test will throw an exception before
+    starting a browser.
+
+-nodePolling:
+  (node) in ms. Interval between alive checks of node how often the
+    hub checks if the node is still alive.
+
+-host:
+  (hub & node)  <IP | hostname> : usually not needed and determined
+    automatically. For exotic network configuration, network with
+    VPN, specifying the host might be necessary.
+
+-downPollingLimit:
+  (node) node is marked as down after downPollingLimit alive
+    checks.
+
+-unregisterIfStillDownAfter:
+  (node) in ms. If the node remains down for more than
+    unregisterIfStillDownAfter millisec, it will disappear from the
+    hub.Default is 1min.
+
+-cleanupCycle:
+  (node) <XXXX> in ms. How often a proxy will check for timed out
+    thread.
+
+-nodeConfig:
+  (node) a JSON file following grid2 format that defines the node
+    properties.
+
+-prioritizer:
+  (hub) a class implementing the Prioritizer interface. Default to
+    null ( no priority = FIFO ).Specify a custom prioritizer if you
+    need the grid to process the tests from the CI, or the IE tests
+    first for instance.
+
+-servlets:
+  (hub & node) <com.mycompany.MyServlet,com.mycompany.MyServlet2>
+    to register a new servlet on the hub/node. The servlet will
+    accessible under the path  /grid/admin/MyServlet
+    /grid/admin/MyServlet2
+
+-proxy:
+  (node) the class that will be used to represent the node. By
+    default org.openqa.grid.selenium.proxy.DefaultRemoteProxy.
+
+-browserTimeout:
+  (hub/node) The timeout in seconds a browser can hang
+
+-grid1Yml:
+  (hub) a YML file following grid1 format.
+
+-role:
+  <hub|node> (default is no grid, just run an RC/webdriver server).
+    When launching a node, the parameters will be forwarded to the
+    server on the node, so you can use something like -role node
+    -trustAllSSLCertificates.  In that case, the SeleniumServer will
+    be launch with the trustallSSLCertificates option.
+
 
 ```
