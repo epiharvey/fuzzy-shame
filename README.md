@@ -137,4 +137,5 @@ test reporting, and integration with Confluence / JIRA.
 
 ###<a name="32-using-git-with-maven"></a>[3.2] Using Git with Maven###
 
-TODO
+To be able to write tests, or to make changes to the test system, it is
+necessary to set up git and maven.
