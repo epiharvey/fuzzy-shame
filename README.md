@@ -1,5 +1,8 @@
 #Epiphan WUI test automation (WIP)#
 
+This document can be found in PDF form
+[HERE](https://github.com/epiharvey/fuzzy-shame/raw/master/README.pdf)
+
 ##<a name="1-table-of-contents"></a>[1] Table of Contents##
 
 In this document, the following sections should be present.
