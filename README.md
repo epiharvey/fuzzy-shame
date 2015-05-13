@@ -138,4 +138,18 @@ test reporting, and integration with Confluence / JIRA.
 ###<a name="32-using-git-with-maven"></a>[3.2] Using Git with Maven###
 
 To be able to write tests, or to make changes to the test system, it is
-necessary to set up git and maven.
+necessary to set up git and maven. Both the build system, as well as the tests
+rely on maven to run. Git allows the system to be kept in a consistent state
+even with multiple parties contributing new code, or alterations.
+
+####<a name="321-steps"></a>[3.2.1] Steps###
+
+1.  Install the latest version of Maven [version 3.3.3 at 2015-05-13]
+2.  Install the latest version of Git [version 1.9.1 at 2015-05-13]
+3.  checkout a copy of the
+    [repository](http://github.com/epiharvey/fuzzy-shame).
+4.  The repository contains a ready-to-go maven project with everything you
+    need to begin writing and executing tests.
+5.  If you do not already have a copy of `grid.jar` or `spawn.jar`, build the
+    `grid` module to obtain both.
+6.  
