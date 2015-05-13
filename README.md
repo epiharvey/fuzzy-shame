@@ -368,4 +368,35 @@ modified Selenium grid as described in [[2.2]](#22-grid)
 
 ```
 ###<a name="42-test-configuration"></a>[4.2] Test Configuration###
-***TODO***
+
+The code for the test cases resides in `/fuzzy-shame/tests/src/tests/java/`.
+Each test can be a member of any number of 'groups', or 'suites', and can
+receive parameters at runtime that need not be hardcoded into the test case
+itself.  
+The suites, groups, and parameters are stored in the test configuration file
+found at `/fuzzy-shame/tests/testng.xml`. The following is an example of what
+`testng.xml` might look like, and was current as of 2015-05-13.
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+	<suite name="Epiphan Test Suite [MD-XXXX]" verbose="10" parallel="methods" thread-count="10">
+		<listeners>
+			<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+			<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+		</listeners>
+		<parameter name="browser" value="firefox"/>
+		<parameter name="hubIP" value="192.168.114.111:4444"/>
+		<parameter name="targetIP" value="192.168.114.117" />
+		<parameter name="targetUser" value="admin"/>
+		<parameter name="targetPass" value=""/>
+			<test name="MD-3993">
+				<classes>
+					<class name="com.epiphan.qa.tests.MD3993"/>
+				</classes>
+			</test>
+	</suite>
+```
+
+This defines a suite named *"Epiphan Test Suite [MD-XXXX]"* in which methods
+marked with the `@Test` annotation are run in parallel on a maximum of 10
+threads. The test suite 
