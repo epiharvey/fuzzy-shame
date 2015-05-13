@@ -15,8 +15,11 @@ In this document, the following sections should be present.
     * [[3.1.2] Notes](#312-notes)
   * [[3.2] Using Git with Maven](#32-using-git-with-maven)
     * [[3.2.1] Steps](#321-steps)
+    * [[3.2.2] Notes](#322-notes)
   * [[3.3] Setting up the Grid](#33-setting-up-the-grid)
     * [[3.3.1] Steps](#331-steps)
+    * [[3.3.1] Notes](#332-notes)
+  * [[4] Use](#4-use)
 
 
 ##<a name="2-about"></a>[2] About##
@@ -160,6 +163,7 @@ even with multiple parties contributing new code, or alterations.
 5.  If you do not already have a copy of `grid.jar` or `spawn.jar`, build the
     `grid` module to obtain both.
 
+####<a name="322-notes"></a>[3.2.2] Notes####
 ###<a name="33-setting-up-the-grid"></a>[3.3] Setting up the Grid##
 
 Before using the automated test system, it is necessary to provide an
@@ -203,3 +207,4 @@ modified Selenium grid as described in [[2.2]](#22-grid)
   be found by running `java -jar grid.jar -h`
 
 ##<a name="4-use"></a>[4] Use##
+***TODO***
