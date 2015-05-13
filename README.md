@@ -37,7 +37,8 @@ This framework is meant to provide a simple base upon which to build automated
 tests for the WUI shared by the VGA Grid, Recorder Pro, and Pearl.
 Additionally, this framework is meant to overcome some problems with the
 default Selenium Grid2 system.  
-This is **not** a framework for testing **anything other than WUI**.
+This is **not** a framework for testing **anything other than WUI**
+(but it maybe could be later).
 
 ###<a name="21-building-blocks"></a>[2.1] Building Blocks###
 The Cornerstones of the UI automation framework are:
