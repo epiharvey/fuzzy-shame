@@ -7,6 +7,59 @@
 		<version>1.0</version>
 	</parent>
 	<artifactId>tests</artifactId>
+	<properties>
+		<mainSuiteFile>${basedir}/testng.xml</mainSuiteFile>
+		<defaultSuiteFiles>${mainSuiteFile}</defaultSuiteFiles>
+		<suiteFiles>${defaultSuiteFiles}</suiteFiles>
+
+		<devTargetIP>192.168.114.117</devTargetIP>
+		<defaultTargetIP>${devTargetIP}</defaultTargetIP>
+		<targetIP>${defaultTargetIP}</targetIP>
+
+		<devHubIP>192.168.114.111</devHubIP>
+		<defaultHubIP>${devHubIP}</defaultHubIP>
+		<hubIP>${defaultHubIP}</hubIP>
+
+		<devTargetUser>admin</devTargetUser>
+		<defaultTargetUser>${devTargetUser}</defaultTargetUser>
+		<targetUser>${defaultTargetUser}</targetUser>
+
+		<devTargetPass></devTargetPass>
+		<defaultTargetPass>${devTargetPass}</defaultTargetPass>
+		<targetPass>${defaultTargetPass}</targetPass>
+
+		<devBrowser>firefox</devBrowser>
+		<defaultBrowser>${devBrowser}</defaultBrowser>
+		<browser>${defaultBrowser}</browser>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<properties>
+						<property>
+							<name>usedefaultlisteners</name>
+							<value>false</value>
+						</property>
+					</properties>
+					<reportsDirectory>./test-output/${timestamp}/</reportsDirectory>
+					<suiteXmlFiles>
+						<suiteXmlFile>${suiteFiles}</suiteXmlFile>
+					</suiteXmlFiles>
+					<systemPropertyVariables>
+						<targetIP>${targetIP}</targetIP>
+						<hubIP>${hubIP}</hubIP>
+						<targetUser>${targetUser}</targetUser>
+						<targetPass>${targetPass}</targetPass>
+						<browser>${browser}</browser>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 	<dependencies>
 		<dependency>
 			<groupId>org.testng</groupId>
@@ -32,25 +85,4 @@
 			<version>3.0</version>
 		</dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.18.1</version>
-				<configuration>
-					<properties>
-						<property>
-							<name>usedefaultlisteners</name>
-							<value>false</value>
-						</property>
-					</properties>
-					<reportsDirectory>./test-output/${timestamp}/</reportsDirectory>
-					<suiteXmlFiles>
-						<suiteXmlFile>testng.xml</suiteXmlFile>
-					</suiteXmlFiles>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 </project>
