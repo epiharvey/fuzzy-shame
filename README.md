@@ -377,29 +377,45 @@ The code for the test cases resides in `/fuzzy-shame/tests/src/tests/java/`.
 Each test can be a member of any number of 'groups', or 'suites', and can
 receive parameters at runtime that need not be hardcoded into the test case
 itself.  
-The suites, groups, and parameters are stored in the test configuration file
-found at `/fuzzy-shame/tests/testng.xml`. The following is an example of what
-`testng.xml` might look like, and was current as of 2015-05-13.
+When running tests through `mvn test`, it is possible to specify parameters
+to change the test behavior. For example,
+`mvn test -DsuiteFiles=suite.xml -DtargetIP=192.168.114.117`  
+The full list of parameters is:
+```
+suiteFiles
+    A comma separated list of xml files containing tests to be run.
+    The default is "testng.xml"
+
+hubIP
+    The IP where the Selenium Grid hub is located.  
+    The default is "192.168.114.111:4444"
+
+targetIP
+    A comma separated list of IP addresses against which to run the test(s).
+    presumably these will be the IP addresses of Pearls, Grids, etc..
+    The default is "192.168.114.117"
+
+browser
+    A comma separated list of browsers against which to run the test(s).
+    The default is "firefox"
+
+targetUser
+    The username to log in to the devices at targetIP.
+    The default is "admin"
+
+targetPass
+    The password to log in to the devices at targetIP.
+    The default is ""
 
 ```
-<?xml version="1.0" encoding="UTF-8"?>
-	<suite name="Epiphan Test Suite [MD-XXXX]" verbose="10" parallel="methods" thread-count="10">
-		<listeners>
-			<listener class-name="org.uncommons.reportng.HTMLReporter"/>
-			<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
-		</listeners>
-		<parameter name="browser" value="firefox"/>
-		<parameter name="hubIP" value="192.168.114.111:4444"/>
-		<parameter name="targetIP" value="192.168.114.117" />
-		<parameter name="targetUser" value="admin"/>
-		<parameter name="targetPass" value=""/>
-			<test name="MD-3993">
-				<classes>
-					<class name="com.epiphan.qa.tests.MD3993"/>
-				</classes>
-			</test>
-	</suite>
-```
+It is important to note that the test(s) will be run on every combination of
+the targetIP and browser parameters. Thus, to run tests on a target in firefox,
+chrome and IE, you should execute:  
+`mvn test -DtargetIP=192.168.114.117
+-Dbrowser=firefox,chrome,internetexplorer`  
+rather than:  
+`mvn test -DtargetIP=192.168.114.117,192.168.114.117,192.168.114.117
+-Dbrowser=firefox,chrome,internetexplorer`
 
 This defines a suite named *"Epiphan Test Suite [MD-XXXX]"* in which methods
 marked with the `@Test` annotation are run in parallel on a maximum of 10
