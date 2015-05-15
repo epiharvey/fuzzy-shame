@@ -3,6 +3,7 @@
 		<listeners>
 			<listener class-name="org.uncommons.reportng.HTMLReporter"/>
 			<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+			<listener class-name="com.epiphan.qa.tests.reports.EpiphanReporter"/>
 		</listeners>
 			<test name="MD-3993">
 				<classes>

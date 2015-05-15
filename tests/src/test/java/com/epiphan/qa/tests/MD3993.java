@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.*;
 
 public class MD3993 {
@@ -13,6 +14,7 @@ public class MD3993 {
 	@Test(dataProviderClass=DataProviders.class,dataProvider="env")
 	public void doTest(TestEnvironment env){
 		
+		Reporter.log("doing");
 		//Start driver and auth into target
 		WebDriver driver = env.startDriver();
 		driver.get("http://"+env.targetUser+":"+env.targetPass+"@"+env.targetIP+"/admin/infocfg");
@@ -41,6 +43,7 @@ public class MD3993 {
 	    driver.findElement(By.cssSelector("#fn_delete > input[type=\"submit\"]")).click();
 	    driver.switchTo().alert().accept();
 	    
+	    Reporter.log("done");
 	    //Cleanup
 	    driver.quit();
 	}
