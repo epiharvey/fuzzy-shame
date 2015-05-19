@@ -1,7 +1,8 @@
 #Epiphan WUI test automation (WIP)#
 
 This document can be found in PDF form
-[HERE](https://github.com/epiharvey/fuzzy-shame/raw/master/README.pdf)
+[HERE](https://github.com/epiharvey/fuzzy-shame/raw/master/README.pdf)  
+Sections marked with a * may contain information that is old, or incorrect.
 
 ##<a name="1-table-of-contents"></a>[1] Table of Contents##
 
@@ -10,9 +11,9 @@ In this document, the following sections should be present.
 * [[1] Table of Contents](#1-table-of-contents)
 * [[2] About](#2-about)
     * [[2.1] Building Blocks](#21-building-blocks)
-    * [[2.2] General Architecture](#22-general-architecture)
+    * [[2.2] General Architecture*](#22-general-architecture)
     * [[2.3] Grid](#23-grid)
-    * [[2.4] Tests](#24-tests)
+    * [[2.4] Tests*](#24-tests)
 * [[3] Setup](#3-setup)
     * [[3.1] Using Git with Jenkins](#31-using-git-with-jenkins)
         * [[3.1.1] Steps](#311-steps)
@@ -25,7 +26,8 @@ In this document, the following sections should be present.
         * [[3.3.1] Notes](#332-notes)
 * [[4] Use](#4-use)
     * [[4.1] Grid Options](#41-grid-options)
-    * [[4.2] Test Configuration](#42-test-configuration)
+    * [[4.2] Running Tests*](#42-running-tests)
+    * [[4.3] Writing Tests*](#43-writing-tests)
 
 \pagebreak
 
@@ -371,7 +373,7 @@ modified Selenium grid as described in [[2.2]](#22-grid)
 
 
 ```
-###<a name="42-test-configuration"></a>[4.2] Test Configuration###
+###<a name="42-running-tests"></a>[4.2] Running Tests###
 
 The code for the test cases resides in `/fuzzy-shame/tests/src/tests/java/`.
 Each test can be a member of any number of 'groups', or 'suites', and can
@@ -417,7 +419,33 @@ rather than:
 `mvn test -DtargetIP=192.168.114.117,192.168.114.117,192.168.114.117
 -Dbrowser=firefox,chrome,internetexplorer`
 
-This defines a suite named *"Epiphan Test Suite [MD-XXXX]"* in which methods
-marked with the `@Test` annotation are run in parallel on a maximum of 10
-threads. The test suite
-***TODO***
+###<a name="43-writing-tests"></a>[4.3] Writing Tests###
+
+The Java source files containing the automated tests are stored in
+`/fuzy-shame/tests/src/test/java/com/epiphan/qa/tests` and are members of the
+package `com.epiphan.qa.tests`  
+The package `com.epiphan.qa.tests.util` provides some basic helper classes for
+helping to run tests, and dealing with the basic Selenium initialization common
+to all of the tests.  
+
+For consistency, each test class should be named based on that tests ID in
+JIRA. For example, a class implementing the test case `MD-3993`, would be found
+in `MD3993.java`  
+
+Each method which is to be executed as a test, must be marked with the `@Test`
+annotation. Further, each test method must take one parameter of type
+`TestEnvironment` and specify the data provider `env`.  
+Each test method would thus appear like this:  
+```
+@Test(dataProviderClass=DataProviders.class,dataProvider=env)
+public void doTest (TestEnvironment e) {
+  ...
+}
+```
+The reason that the test methods are required to be this way is to ensure that
+each one is called exactly once for each OS/browser "environment" specified
+when the tests are run.  
+
+The `TestEnvironment` class is meant to store important information about the
+current test. It also provides a function to automatically create a WebDriver
+with appropriate settings.
