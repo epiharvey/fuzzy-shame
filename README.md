@@ -3,7 +3,7 @@
 This document can be found in PDF form
 [HERE](https://github.com/epiharvey/fuzzy-shame/raw/master/README.pdf)  
 but the best place to read it is
-[HERE](https://github.com/epiharvey/fuzzy-shame/blob/master/README.md)
+[HERE](https://github.com/epiharvey/fuzzy-shame/blob/master/README.md)  
 Sections marked with a * may contain information that is old, or incorrect.
 
 ##<a name="1-table-of-contents"></a>[1] Table of Contents##
