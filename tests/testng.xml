@@ -8,6 +8,10 @@
 			<test name="MD-3993">
 				<classes>
 					<class name="com.epiphan.qa.tests.MD3993"/>
+				</classes>
+			</test>
+			<test name="DPST">
+				<classes>
 					<class name="com.epiphan.qa.tests.DataProviders"/>
 				</classes>
 			</test>

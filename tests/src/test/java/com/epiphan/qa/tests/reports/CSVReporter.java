@@ -49,7 +49,11 @@ public class CSVReporter implements IReporter{
 			
 			System.out.println("Evaluating results for suite: "+suite.getName());
 			String suiteName = suite.getName();
-			
+			try {
+				report.write("SUITE: "+suite.getName()+", TEST NAME, RESULT, TIME (ms), INFO\n");
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 			Map<String, ISuiteResult> suiteResults = suite.getResults();
 			for (String testName : suiteResults.keySet()) {
 				
@@ -59,11 +63,7 @@ public class CSVReporter implements IReporter{
 				ITestContext testContext = suiteResult.getTestContext();
 				IResultMap failResult = testContext.getFailedTests();
 				Set<ITestResult> testsFailed = failResult.getAllResults();
-				try {
-					report.write("FAILED TESTS, TEST NAME, TIME (ms), INFO\n");
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+				
 				for (ITestResult testResult : testsFailed) {
 					
 					System.out.println("Failed test");
@@ -73,6 +73,8 @@ public class CSVReporter implements IReporter{
 						report.write(",");
 						report.write(testName);
 						report.write(",");
+						report.write("FAIL");
+						report.write(",");
 						report.write(String.valueOf(testResult.getEndMillis() - testResult.getStartMillis()));
 						report.write(",");
 						report.write("\""+thrown+"\"");
@@ -80,7 +82,6 @@ public class CSVReporter implements IReporter{
 						
 						report.flush();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
@@ -89,6 +90,20 @@ public class CSVReporter implements IReporter{
 				Set<ITestResult> testsPassed = passResult.getAllResults();
 				for (ITestResult testResult : testsPassed) {
 					
+					try {
+						report.write(",");
+						report.write(testName);
+						report.write(",");
+						report.write("PASS");
+						report.write(",");
+						report.write(String.valueOf(testResult.getEndMillis() - testResult.getStartMillis()));
+						report.write(",");
+						report.write("NONE");
+						report.write("\n");
+						report.flush();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 					System.out.println("Passed test");
 				}
 				
@@ -96,6 +111,19 @@ public class CSVReporter implements IReporter{
 				Set<ITestResult> testsSkipped = skipResult.getAllResults();
 				for (ITestResult testResult : testsSkipped) {
 					
+					try {
+					report.write(",");
+					report.write(testName);
+					report.write(",");
+					report.write("SKIP");
+					report.write(",");
+					report.write(String.valueOf(testResult.getEndMillis() - testResult.getStartMillis()));
+					report.write(",");
+					report.write("NONE");
+					report.write("\n");
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 					System.out.println("Skipped test");
 				}
 				
