@@ -16,7 +16,7 @@
 		<defaultTargetIP>${devTargetIP}</defaultTargetIP>
 		<targetIP>${defaultTargetIP}</targetIP>
 
-		<devHubIP>192.168.114.111</devHubIP>
+		<devHubIP>192.168.114.111:4444</devHubIP>
 		<defaultHubIP>${devHubIP}</defaultHubIP>
 		<hubIP>${defaultHubIP}</hubIP>
 
@@ -28,7 +28,7 @@
 		<defaultTargetPass>${devTargetPass}</defaultTargetPass>
 		<targetPass>${defaultTargetPass}</targetPass>
 
-		<devBrowser>firefox</devBrowser>
+		<devBrowser>firefox,firefox,firefox</devBrowser>
 		<defaultBrowser>${devBrowser}</defaultBrowser>
 		<browser>${defaultBrowser}</browser>
 	</properties>

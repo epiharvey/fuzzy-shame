@@ -3,12 +3,14 @@
 		<listeners>
 			<listener class-name="org.uncommons.reportng.HTMLReporter"/>
 			<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
-			<listener class-name="com.epiphan.qa.tests.reports.CSVReporter"/>
 		</listeners>
+		<parameter name="browser" value="firefox"/>
+		<parameter name="hubIP" value="192.168.114.111:4444"/>
+		<parameter name="targetIP" value="192.168.114.117 192.168.114.117 192.168.114.117 192.168.114.117 192.168.114.117" />
+		<parameter name="targetUser" value="admin"/>
+		<parameter name="targetPass" value=""/>
 			<test name="MD-3993">
 				<classes>
-					<class name="com.epiphan.qa.tests.MD3993"/>
-					<class name="com.epiphan.qa.tests.DataProviders"/>
 				</classes>
 			</test>
 	</suite>
