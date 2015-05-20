@@ -144,7 +144,8 @@ Tests are stored only in uncompiled source form in order to make the addition,
 removal, and editing of tests as simple as possible.
 
 Tests are run by invoking the Maven build system with the `test` target.
-The
+any test output is directed to `/fuzzy-shame/tests/test-output/${timestamp}/`
+or to some subdirectory thereof.
 
 ##<a name="3-setup"></a>[3] Setup##
 
@@ -247,7 +248,7 @@ modified Selenium grid as described in [[2.2]](#22-grid)
 
 ####<a name="332-notes"></a>[3.3.2] Notes####
 
-* The reason we run `grid.jar` through `spawn.jar` rather than through
+* The reason we run `grid.jar` through `spawn.jar` rather than straight through
   `java -jar` is that `spawn.jar` acts as a watchdog, restarting dead nodes
   as described in [[2.2]](#22-grid)
 * When running through `spawn.jar`, provide program arguments just as you
