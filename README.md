@@ -451,3 +451,13 @@ when the tests are run.
 The `TestEnvironment` class is meant to store important information about the
 current test. It also provides a function to automatically create a WebDriver
 with appropriate settings.
+
+Any messages which you wish to appear in the test reports can be logged using
+the logging functionality built into TestNG's Reporter class. For example:
+```
+import org.testng.Reporter;
+...
+String mesg = "message";
+Reporter.log(mesg);
+...
+```
