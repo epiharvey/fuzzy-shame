@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.*;
 
@@ -14,6 +15,8 @@ public class MD3993 {
 	@Test(dataProviderClass=DataProviders.class,dataProvider="env")
 	public void doTest(TestEnvironment env){
 		
+		ITestResult result = Reporter.getCurrentTestResult();
+		result.setAttribute("Log", "lala");
 		Reporter.log("doing");
 		//Start driver and auth into target
 		WebDriver driver = env.startDriver();
