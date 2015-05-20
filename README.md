@@ -138,6 +138,14 @@ Unlike `grid` this module does not produce any permanent artifacts when built.
 This means that the
 module must be built from scratch each time tests are run.
 
+The testing framework is based on the open source unit/functional/integration
+testing library, TestNG.  
+Tests are stored only in uncompiled source form in order to make the addition,
+removal, and editing of tests as simple as possible.
+
+Tests are run by invoking the Maven build system with the `test` target.
+The
+
 ##<a name="3-setup"></a>[3] Setup##
 
 ###<a name="31-using-git-with-jenkins"></a>[3.1] Using Git with Jenkins###
