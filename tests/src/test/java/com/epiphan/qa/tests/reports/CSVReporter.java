@@ -245,6 +245,11 @@ public class CSVReporter implements IReporter {
 		}
 	}
 	
+	/**
+	 * Prints the info header at the top of the CSV report.
+	 * @param suites The list of ISuite objects whence to gather test data
+	 * @param w The BufferedWriter pointed to the report file.
+	 */
 	private void writeHeader (List<ISuite> suites, BufferedWriter w) {
 		long time = 0;
 		int tests = 0;
