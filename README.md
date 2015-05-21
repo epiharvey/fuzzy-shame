@@ -12,18 +12,18 @@ In this document, the following sections should be present.
 
 * [[1] Table of Contents](#1-table-of-contents)
 * [[2] About](#2-about)
-    * [[2.1] Building Blocks*](#21-building-blocks)
-    * [[2.2] General Architecture*](#22-general-architecture)
-    * [[2.3] Grid*](#23-grid)
-    * [[2.4] Tests*](#24-tests)
+    * [[2.1] Building Blocks](#21-building-blocks)
+    * [[2.2] General Architecture](#22-general-architecture)
+    * [[2.3] Grid](#23-grid)
+    * [[2.4] Tests](#24-tests)
 * [[3] Setup](#3-setup)
-    * [[3.1] Git and Maven*](#31-git-and-maven)
+    * [[3.1] Git and Maven](#31-git-and-maven)
         * [[3.1.1] Steps](#311-steps)
         * [[3.1.2] Notes](#312-notes)
-    * [[3.2] Jenkins*](#32-jenkins)
+    * [[3.2] Jenkins](#32-jenkins)
         * [[3.2.1] Steps](#321-steps)
         * [[3.2.2] Notes](#322-notes)
-    * [[3.3*] Setting up the Grid](#33-setting-up-the-grid)
+    * [[3.3] Setting up the Grid](#33-setting-up-the-grid)
         * [[3.3.1] Steps](#331-steps)
         * [[3.3.1] Notes](#332-notes)
 * [[4] Use](#4-use)
@@ -162,9 +162,14 @@ even with multiple parties contributing new code, or alterations.
 2.  Install the latest version of Git [version 1.9.1 at 2015-05-13]
 3.  checkout a copy of the
     [repository](http://github.com/epiharvey/fuzzy-shame).
-4.  The repository contains a ready-to-go maven project with everything you
+4.  Create a personal git branch of the repository. This will allow you to
+    work without stepping on anybody's toes.  
+    The idea is that the master branch should always be in a functional state,
+    and developments from testers personal branches are merged in only when
+    they are ready.
+5.  The repository contains a ready-to-go maven project with everything you
     need to begin writing and executing tests.
-5.  If you do not already have a copy of `grid.jar` or `spawn.jar`, build the
+6.  If you do not already have a copy of `grid.jar` or `spawn.jar`, build the
     `grid` module to obtain both.
 
 ####<a name="312-notes"></a>[3.1.2] Notes####
@@ -464,7 +469,15 @@ when the tests are run.
 
 The `TestEnvironment` class is meant to store important information about the
 current test. It also provides a function to automatically create a WebDriver
-with appropriate settings.
+with appropriate settings. To make use of this in your test methods, do
+something like this:
+```
+@Test(dataProviderClass=DataProviders.class,dataProvider=env)
+public void doTest (TestEnvironment e) {
+  WebDriver driver = e.startDriver();
+  ...
+}
+```
 
 Any messages which you wish to appear in the test reports can be logged using
 the logging functionality built into TestNG's Reporter class. For example:
@@ -475,3 +488,7 @@ String mesg = "message";
 Reporter.log(mesg);
 ...
 ```
+
+Any questions you may have about Selenium itself may be answered in the
+Selenium documentation. Do not count on this. Selenium is very poorly
+documented. For questions not answered there, check the w3c WebDriver spec.
