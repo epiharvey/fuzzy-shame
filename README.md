@@ -11,7 +11,7 @@ Sections marked with a * may contain information that is old, or incorrect.
 In this document, the following sections should be present.
 
 * [[1] Table of Contents](#table-of-contents)
-* [[2] About](#about)
+* [[2] About](#2-about)
     * [[2.1] Building Blocks](#building-blocks)
     * [[2.2] General Architecture](#general-architecture)
     * [[2.3] Grid](#grid)
@@ -33,7 +33,7 @@ In this document, the following sections should be present.
 
 \pagebreak
 
-##[2] About##
+##[2] About {#2-about}##
 
 This repository contains the building blocks of
 a basic web UI test automation framework for use by Epiphan QA.  
