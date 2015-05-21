@@ -495,3 +495,11 @@ documented. For questions not answered there, check the w3c WebDriver spec.
 
 See `/fuzzy-shame/tests/src/test/java/com/epiphan/qa/tests/MD3993.java` for an
 example test case.
+
+When defining test suites, please create a new suite xml file for each suite.
+The name of the file should follow the form: `suitename.xml`. For example, a
+suite file defining a set of high priority wui tests for 3.15.1 might be named
+`3-15-1-high-priority.xml.  
+Ensure that the default suite file, `testng.xml` includes an entry to the suite
+file you create. Do not edit `testng.xml` beyond this. This will ensure that
+the default `mvn test` command will run all the test suites.
