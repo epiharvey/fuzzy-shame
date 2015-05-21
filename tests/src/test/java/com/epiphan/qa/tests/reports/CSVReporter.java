@@ -63,16 +63,18 @@ public class CSVReporter implements IReporter {
 			e.printStackTrace();
 			return;
 		}
+		
+		writeHeader(iSuites, report);
+		try {
+			report.write("SUITE, TEST, METHOD, STATUS, TIME (ms), LOG, THROWABLE\n");
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 
 		for (ISuite suite : iSuites) {
 
 			System.out.println("Evaluating results for suite: "
 					+ suite.getName());
-			try {
-				report.write("SUITE, TEST, METHOD, STATUS, TIME (ms), LOG, THROWABLE\n");
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
 			Map<String, ISuiteResult> suiteResults = suite.getResults();
 			for (String testName : suiteResults.keySet()) {
 
@@ -244,6 +246,59 @@ public class CSVReporter implements IReporter {
 		}
 	}
 	
-	private void writeHeader (List<ISuite>)
+	private void writeHeader (List<ISuite> suites, BufferedWriter w) {
+		long time = 0;
+		int tests = 0;
+		int failed = 0;
+		int passed = 0;
+		int skipped = 0;
+		float fpercent = 0.0f;
+		float ppercent = 0.0f;
+		float spercent = 0.0f;
+		
+		for (ISuite suite : suites) {
+			for (ISuiteResult sresult : suite.getResults().values()) {
+				ITestContext context = sresult.getTestContext();
+				for (ITestResult tresult : context.getFailedTests().getAllResults()) {
+					time = time + tresult.getEndMillis() - tresult.getStartMillis();
+					failed++;
+					tests++;
+				}
+				for (ITestResult tresult : context.getPassedTests().getAllResults()) {
+					time = time + tresult.getEndMillis() - tresult.getStartMillis();
+					passed++;
+					tests++;
+				}
+				for (ITestResult tresult : context.getSkippedTests().getAllResults()) {
+					time = time + tresult.getEndMillis() - tresult.getStartMillis();
+					skipped++;
+					tests++;
+				}
+			}
+		}
+		fpercent = (float)failed / (float)tests * 100f;
+		ppercent = (float)passed / (float)tests * 100f;
+		spercent = (float)skipped / (float)tests * 100f;
+		try {
+			w.write("TESTS, TIME, AV TIME, FAIL, PASS, SKIP");
+			w.write("\n");
+			w.write(String.valueOf(tests));
+			w.write(",");
+			w.write(String.valueOf(time));
+			w.write(",");
+			w.write(String.valueOf(time/tests));
+			w.write(",");
+			w.write(String.valueOf(failed)+" ("+String.valueOf(fpercent)+"%)");
+			w.write(",");
+			w.write(String.valueOf(passed)+" ("+String.valueOf(ppercent)+"%)");
+			w.write(",");
+			w.write(String.valueOf(skipped)+" ("+String.valueOf(spercent)+"%)");
+			w.write("\n--------,--------,--------,--------,--------,--------\n");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 }
