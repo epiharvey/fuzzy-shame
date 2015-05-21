@@ -33,7 +33,7 @@ In this document, the following sections should be present.
 
 \pagebreak
 
-##[2] About {#2-about}##
+##[2] About##
 
 This repository contains the building blocks of
 a basic web UI test automation framework for use by Epiphan QA.  
