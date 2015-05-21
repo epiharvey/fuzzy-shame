@@ -243,5 +243,7 @@ public class CSVReporter implements IReporter {
 			return;
 		}
 	}
+	
+	private void writeHeader (List<ISuite>)
 
 }
