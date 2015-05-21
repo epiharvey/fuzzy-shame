@@ -44,9 +44,8 @@ public class CSVReporter implements IReporter {
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> iSuites,
 			String outputDir) {
 
-		Path dir = Paths.get(outputDir + "/Epiphan");
-		Path reportFile = Paths.get(outputDir + "/Epiphan/report.csv");
-		Path summaryFile = Paths.get(outputDir + "/Epiphan/summary.csv");
+		Path dir = Paths.get(outputDir + "/csv");
+		Path reportFile = Paths.get(outputDir + "/csv/report.csv");
 		BufferedWriter report;
 		System.out.println("Creating \"" + reportFile.toString() + "\"");
 
@@ -280,7 +279,7 @@ public class CSVReporter implements IReporter {
 		ppercent = (float)passed / (float)tests * 100f;
 		spercent = (float)skipped / (float)tests * 100f;
 		try {
-			w.write("TESTS, TIME, AV TIME, FAIL, PASS, SKIP");
+			w.write("TESTS, TIME (ms), AV TIME (ms), FAIL, PASS, SKIP");
 			w.write("\n");
 			w.write(String.valueOf(tests));
 			w.write(",");
