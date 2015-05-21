@@ -10,30 +10,30 @@ Sections marked with a * may contain information that is old, or incorrect.
 
 In this document, the following sections should be present.
 
-* [[1] Table of Contents](#1-table-of-contents)
-* [[2] About](#2-about)
-    * [[2.1] Building Blocks](#21-building-blocks)
-    * [[2.2] General Architecture](#22-general-architecture)
-    * [[2.3] Grid](#23-grid)
-    * [[2.4] Tests](#24-tests)
-* [[3] Setup](#3-setup)
-    * [[3.1] Git and Maven](#31-git-and-maven)
-        * [[3.1.1] Steps](#311-steps)
-        * [[3.1.2] Notes](#312-notes)
-    * [[3.2] Jenkins](#32-jenkins)
-        * [[3.2.1] Steps](#321-steps)
-        * [[3.2.2] Notes](#322-notes)
-    * [[3.3] Setting up the Grid](#33-setting-up-the-grid)
-        * [[3.3.1] Steps](#331-steps)
-        * [[3.3.1] Notes](#332-notes)
-* [[4] Use](#4-use)
-    * [[4.1] Grid Options](#41-grid-options)
-    * [[4.2] Running Tests*](#42-running-tests)
-    * [[4.3] Writing Tests*](#43-writing-tests)
+* [[1] Table of Contents](#table-of-contents)
+* [[2] About](#about)
+    * [[2.1] Building Blocks](#building-blocks)
+    * [[2.2] General Architecture](#general-architecture)
+    * [[2.3] Grid](#grid)
+    * [[2.4] Tests](#tests)
+* [[3] Setup](#setup)
+    * [[3.1] Git and Maven](#git-and-maven)
+        * [[3.1.1] Steps](#steps-1)
+        * [[3.1.2] Notes](#notes-1)
+    * [[3.2] Jenkins](#jenkins)
+        * [[3.2.1] Steps](#steps-2)
+        * [[3.2.2] Notes](#notes-2)
+    * [[3.3] Setting up the Grid](#setting-up-the-grid)
+        * [[3.3.1] Steps](#steps-3)
+        * [[3.3.2] Notes](#notes-3)
+* [[4] Use](#use)
+    * [[4.1] Grid Options](#grid-options)
+    * [[4.2] Running Tests*](#running-tests)
+    * [[4.3] Writing Tests*](#writing-tests)
 
 \pagebreak
 
-##<a name="2-about"></a>[2] About##
+##[2] About##
 
 This repository contains the building blocks of
 a basic web UI test automation framework for use by Epiphan QA.  
@@ -44,7 +44,7 @@ default Selenium Grid2 system.
 This is **not** a framework for testing **anything other than WUI**
 (but it maybe could be later).
 
-###<a name="21-building-blocks"></a>[2.1] Building Blocks###
+###[2.1] Building Blocks###
 The Cornerstones of the UI automation framework are:
 
 * [Selenium](http://seleniumhq.org) - A  *Web User Interface* (WUI) automation
@@ -76,7 +76,7 @@ Other components include:
   those processes while performing other tasks.
 * [GitHub](http://github.org) - A popular Git repository host.
 
-###<a name="22-general-architecture"></a>[2.2] General Architecture###
+###[2.2] General Architecture###
 
 The Maven project for the automated test system has the following structure:
 
@@ -101,7 +101,7 @@ fuzzy-shame
   |-test-output/
 ```
 
-###<a name="23-grid"></a>[2.3] Grid###
+###[2.3] Grid###
 
 The actual automated test system (`grid`) is made up of a 'hub' and some
 number of 'nodes'.  
@@ -131,7 +131,7 @@ This watchdog simply checks the node every few seconds, and starts a fresh node
 if it finds that the node has terminated. The watchdog does not care if the
 node was terminated by a crash or by deliberate action.
 
-###<a name="24-tests"></a>[2.4] Tests###
+###[2.4] Tests###
 
 The tests to be automated are found in the `tests` module.  
 Unlike `grid` this module does not produce any permanent artifacts when built.
@@ -147,16 +147,16 @@ Tests are run by invoking the Maven build system with the `test` target.
 any test output is directed to `/fuzzy-shame/tests/test-output/${timestamp}/`
 or to some subdirectory thereof.
 
-##<a name="3-setup"></a>[3] Setup##
+##[3] Setup##
 
-###<a name="31-git-and-maven"></a>[3.1] Git and Maven###
+###[3.1] Git and Maven###
 
 To be able to write tests, or to make changes to the test system, it is
 necessary to set up git and maven. Both the build system, as well as the tests
 rely on maven to run. Git allows the system to be kept in a consistent state
 even with multiple parties contributing new code, or alterations.
 
-####<a name="311-steps"></a>[3.1.1] Steps###
+####[3.1.1] Steps###
 
 1.  Install the latest version of Maven [version 3.3.3 at 2015-05-13]
 2.  Install the latest version of Git [version 1.9.1 at 2015-05-13]
@@ -172,11 +172,11 @@ even with multiple parties contributing new code, or alterations.
 6.  If you do not already have a copy of `grid.jar` or `spawn.jar`, build the
     `grid` module to obtain both.
 
-####<a name="312-notes"></a>[3.1.2] Notes####
+####[3.1.2] Notes####
 * The full list of command line options for `grid.jar` can be found in
   [[4.1]](#41-grid-options), or by running `java -jar grid.jar -h`
 
-###<a name="32-jenkins"></a>[3.2] Jenkins###
+###[3.2] Jenkins###
 
 Using Jenkins CI as a build manager allows us to run the latest version of the
 entire test system against (a) target(s) at specified times.
@@ -189,7 +189,7 @@ Additionally, Jenkins offers a convenient web based interface for use on
 headless machines, and has a wide range of plugins available for such things as
 test reporting, and integration with Confluence / JIRA.
 
-####<a name="321-steps"></a>[3.2.1] Steps####
+####[3.2.1] Steps####
 
 1.  Install the latest version of Maven [version 3.3.3 at 2015-05-12]
 2.  Install the latest version of Git for your OS [version 1.9.1 at 2015-05-12]
@@ -208,7 +208,7 @@ test reporting, and integration with Confluence / JIRA.
     See Ian Harvey in QA to get the repository cridentials. Bring a USB drive.
 8.  Run a build to ensure that everything is set up correctly.
 
-####<a name="322-notes"></a>[3.2.2] Notes####
+####[3.2.2] Notes####
 
 * When first setting up a Jenkins project, it may be necessary to point Jenkins
   to the local Maven installation you want to use.
@@ -219,13 +219,13 @@ test reporting, and integration with Confluence / JIRA.
   to `/fuzzy-shame/tests/pom.xml` instead of `/fuzzy-shame/pom.xml`
 
 
-###<a name="33-setting-up-the-grid"></a>[3.3] Setting up the Grid##
+###[3.3] Setting up the Grid##
 
 Before using the automated test system, it is necessary to provide an
 infrastructure upon which tests can be run. This entails setting up a
 modified Selenium grid as described in [[2.2]](#22-grid)  
 
-####<a name="331-steps"></a>[3.3.1] Steps####
+####[3.3.1] Steps####
 
 1.  Obtain working copies of both `grid.jar` and `spawn.jar`. these can be
     created by running `mvn clean install` on the `grid` module.
@@ -252,7 +252,7 @@ modified Selenium grid as described in [[2.2]](#22-grid)
     You may set the `-nodeConfig <file.json>` parameter to specify a
     configuration file for the node.
 
-####<a name="332-notes"></a>[3.3.2] Notes####
+####[3.3.2] Notes####
 
 * The reason we run `grid.jar` through `spawn.jar` rather than straight through
   `java -jar` is that `spawn.jar` acts as a watchdog, restarting dead nodes
@@ -264,8 +264,8 @@ modified Selenium grid as described in [[2.2]](#22-grid)
   custom servelets or proxies correctly.  
   ***TODO*** update docs when this is fixed.
 
-##<a name="4-use"></a>[4] Use##
-###<a name="41-grid-options"></a>[4.1] Grid Options###
+##[4] Use##
+###[4.1] Grid Options###
 
 ```
 -hubConfig:
@@ -390,7 +390,7 @@ modified Selenium grid as described in [[2.2]](#22-grid)
 
 
 ```
-###<a name="42-running-tests"></a>[4.2] Running Tests###
+###[4.2] Running Tests###
 
 The code for the test cases resides in `/fuzzy-shame/tests/src/tests/java/`.
 Each test can be a member of any number of 'groups', or 'suites', and can
@@ -440,7 +440,7 @@ rather than:
 Test reports will be stored in a timestamped subdirectory of
 `tests/test-output`  
 
-###<a name="43-writing-tests"></a>[4.3] Writing Tests###
+###[4.3] Writing Tests###
 
 The Java source files containing the automated tests are stored in
 `/fuzy-shame/tests/src/test/java/com/epiphan/qa/tests` and are members of the
