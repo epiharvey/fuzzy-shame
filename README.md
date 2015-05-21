@@ -402,18 +402,18 @@ to change the test behavior. For example,
 The full list of parameters is:
 ```
 suiteFiles
-    The xmp file defining,  containing, or pointing to the tests, or suites
+    The xml file defining,  containing, or pointing to the tests, or suites
     to be run.
     The default is "testng.xml"
 
 hubIP
     The IP where the Selenium Grid hub is located.
-    The default is "192.168.114.111:4444"
+    The default is "192.168.114.106:4444"
 
 targetIP
     A comma separated list of IP addresses against which to run the test(s).
     presumably these will be the IP addresses of Pearls, Grids, etc..
-    The default is "192.168.114.117"
+    The default is "192.168.114.23"
 
 browser
     A comma separated list of browsers against which to run the test(s).
@@ -492,3 +492,6 @@ Reporter.log(mesg);
 Any questions you may have about Selenium itself may be answered in the
 Selenium documentation. Do not count on this. Selenium is very poorly
 documented. For questions not answered there, check the w3c WebDriver spec.
+
+See `/fuzzy-shame/tests/src/test/java/com/epiphan/qa/tests/MD3993.java` for an
+example test case.
