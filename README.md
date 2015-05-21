@@ -11,21 +11,21 @@ Sections marked with a * may contain information that is old, or incorrect.
 In this document, the following sections should be present.
 
 * [[1] Table of Contents](#table-of-contents)
-* [[2] About](#2-about)
+* [[2] About](#about)
     * [[2.1] Building Blocks](#building-blocks)
     * [[2.2] General Architecture](#general-architecture)
     * [[2.3] Grid](#grid)
     * [[2.4] Tests](#tests)
 * [[3] Setup](#setup)
     * [[3.1] Git and Maven](#git-and-maven)
-        * [[3.1.1] Steps](#steps-1)
-        * [[3.1.2] Notes](#notes-1)
+        * [[3.1.1] Steps](#steps)
+        * [[3.1.2] Notes](#notes)
     * [[3.2] Jenkins](#jenkins)
-        * [[3.2.1] Steps](#steps-2)
-        * [[3.2.2] Notes](#notes-2)
+        * [[3.2.1] Steps](#steps-1)
+        * [[3.2.2] Notes](#notes-1)
     * [[3.3] Setting up the Grid](#setting-up-the-grid)
-        * [[3.3.1] Steps](#steps-3)
-        * [[3.3.2] Notes](#notes-3)
+        * [[3.3.1] Steps](#steps-2)
+        * [[3.3.2] Notes](#notes-2)
 * [[4] Use](#use)
     * [[4.1] Grid Options](#grid-options)
     * [[4.2] Running Tests*](#running-tests)
@@ -33,7 +33,7 @@ In this document, the following sections should be present.
 
 \pagebreak
 
-##[2] About {#2-about}##
+##[2] About <a name="about"></a>##
 
 This repository contains the building blocks of
 a basic web UI test automation framework for use by Epiphan QA.  
