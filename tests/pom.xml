@@ -12,11 +12,11 @@
 		<defaultSuiteFiles>${mainSuiteFile}</defaultSuiteFiles>
 		<suiteFiles>${defaultSuiteFiles}</suiteFiles>
 
-		<devTargetIP>192.168.114.117</devTargetIP>
+		<devTargetIP>192.168.114.23</devTargetIP>
 		<defaultTargetIP>${devTargetIP}</defaultTargetIP>
 		<targetIP>${defaultTargetIP}</targetIP>
 
-		<devHubIP>192.168.114.111:4444</devHubIP>
+		<devHubIP>192.168.114.106:4444</devHubIP>
 		<defaultHubIP>${devHubIP}</defaultHubIP>
 		<hubIP>${defaultHubIP}</hubIP>
 

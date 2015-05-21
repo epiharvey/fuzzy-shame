@@ -12,18 +12,18 @@ In this document, the following sections should be present.
 
 * [[1] Table of Contents](#1-table-of-contents)
 * [[2] About](#2-about)
-    * [[2.1] Building Blocks](#21-building-blocks)
+    * [[2.1] Building Blocks*](#21-building-blocks)
     * [[2.2] General Architecture*](#22-general-architecture)
-    * [[2.3] Grid](#23-grid)
+    * [[2.3] Grid*](#23-grid)
     * [[2.4] Tests*](#24-tests)
 * [[3] Setup](#3-setup)
-    * [[3.1] Using Git with Jenkins](#31-using-git-with-jenkins)
+    * [[3.1] Git and Maven*](#31-git-and-maven)
         * [[3.1.1] Steps](#311-steps)
         * [[3.1.2] Notes](#312-notes)
-    * [[3.2] Using Git with Maven](#32-using-git-with-maven)
+    * [[3.2] Jenkins*](#32-jenkins)
         * [[3.2.1] Steps](#321-steps)
         * [[3.2.2] Notes](#322-notes)
-    * [[3.3] Setting up the Grid](#33-setting-up-the-grid)
+    * [[3.3*] Setting up the Grid](#33-setting-up-the-grid)
         * [[3.3.1] Steps](#331-steps)
         * [[3.3.1] Notes](#332-notes)
 * [[4] Use](#4-use)
@@ -149,7 +149,29 @@ or to some subdirectory thereof.
 
 ##<a name="3-setup"></a>[3] Setup##
 
-###<a name="31-using-git-with-jenkins"></a>[3.1] Using Git with Jenkins###
+###<a name="31-git-and-maven"></a>[3.1] Git and Maven###
+
+To be able to write tests, or to make changes to the test system, it is
+necessary to set up git and maven. Both the build system, as well as the tests
+rely on maven to run. Git allows the system to be kept in a consistent state
+even with multiple parties contributing new code, or alterations.
+
+####<a name="311-steps"></a>[3.1.1] Steps###
+
+1.  Install the latest version of Maven [version 3.3.3 at 2015-05-13]
+2.  Install the latest version of Git [version 1.9.1 at 2015-05-13]
+3.  checkout a copy of the
+    [repository](http://github.com/epiharvey/fuzzy-shame).
+4.  The repository contains a ready-to-go maven project with everything you
+    need to begin writing and executing tests.
+5.  If you do not already have a copy of `grid.jar` or `spawn.jar`, build the
+    `grid` module to obtain both.
+
+####<a name="312-notes"></a>[3.1.2] Notes####
+* The full list of command line options for `grid.jar` can be found in
+  [[4.1]](#41-grid-options), or by running `java -jar grid.jar -h`
+
+###<a name="32-jenkins"></a>[3.2] Jenkins###
 
 Using Jenkins CI as a build manager allows us to run the latest version of the
 entire test system against (a) target(s) at specified times.
@@ -162,7 +184,7 @@ Additionally, Jenkins offers a convenient web based interface for use on
 headless machines, and has a wide range of plugins available for such things as
 test reporting, and integration with Confluence / JIRA.
 
-####<a name="311-steps"></a>[3.1.1] Steps####
+####<a name="321-steps"></a>[3.2.1] Steps####
 
 1.  Install the latest version of Maven [version 3.3.3 at 2015-05-12]
 2.  Install the latest version of Git for your OS [version 1.9.1 at 2015-05-12]
@@ -181,7 +203,7 @@ test reporting, and integration with Confluence / JIRA.
     See Ian Harvey in QA to get the repository cridentials. Bring a USB drive.
 8.  Run a build to ensure that everything is set up correctly.
 
-####<a name="312-notes"></a>[3.1.2] Notes####
+####<a name="322-notes"></a>[3.2.2] Notes####
 
 * When first setting up a Jenkins project, it may be necessary to point Jenkins
   to the local Maven installation you want to use.
@@ -191,27 +213,6 @@ test reporting, and integration with Confluence / JIRA.
 * If you don't want to compile the grid module on every build, point Jenkins
   to `/fuzzy-shame/tests/pom.xml` instead of `/fuzzy-shame/pom.xml`
 
-###<a name="32-using-git-with-maven"></a>[3.2] Using Git with Maven###
-
-To be able to write tests, or to make changes to the test system, it is
-necessary to set up git and maven. Both the build system, as well as the tests
-rely on maven to run. Git allows the system to be kept in a consistent state
-even with multiple parties contributing new code, or alterations.
-
-####<a name="321-steps"></a>[3.2.1] Steps###
-
-1.  Install the latest version of Maven [version 3.3.3 at 2015-05-13]
-2.  Install the latest version of Git [version 1.9.1 at 2015-05-13]
-3.  checkout a copy of the
-    [repository](http://github.com/epiharvey/fuzzy-shame).
-4.  The repository contains a ready-to-go maven project with everything you
-    need to begin writing and executing tests.
-5.  If you do not already have a copy of `grid.jar` or `spawn.jar`, build the
-    `grid` module to obtain both.
-
-####<a name="322-notes"></a>[3.2.2] Notes####
-* The full list of command line options for `grid.jar` can be found in
-  [[4.1]](#41-grid-options), or by running `java -jar grid.jar -h`
 
 ###<a name="33-setting-up-the-grid"></a>[3.3] Setting up the Grid##
 
@@ -396,11 +397,12 @@ to change the test behavior. For example,
 The full list of parameters is:
 ```
 suiteFiles
-    A comma separated list of xml files containing tests to be run.
+    The xmp file defining,  containing, or pointing to the tests, or suites
+    to be run.
     The default is "testng.xml"
 
 hubIP
-    The IP where the Selenium Grid hub is located.  
+    The IP where the Selenium Grid hub is located.
     The default is "192.168.114.111:4444"
 
 targetIP
@@ -429,6 +431,9 @@ chrome and IE, you should execute:
 rather than:  
 `mvn test -DtargetIP=192.168.114.117,192.168.114.117,192.168.114.117
 -Dbrowser=firefox,chrome,internetexplorer`
+
+Test reports will be stored in a timestamped subdirectory of
+`tests/test-output`  
 
 ###<a name="43-writing-tests"></a>[4.3] Writing Tests###
 
