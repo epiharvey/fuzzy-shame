@@ -37,8 +37,7 @@ public class GridProxy extends DefaultRemoteProxy {
 		FileInputStream file = new FileInputStream("./grid.properties");
 		props.load(file);
 		file.close();
-
-		counter = Integer.parseInt((String) props.get("UniqueSessionCount"));
+		counter = Integer.parseInt(props.get("uniqueSessionCount").toString());
 	}
 
 	@Override

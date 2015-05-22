@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	<suite name="[MD-XXXX]" verbose="10" parallel="methods" thread-count="10">
-		<listeners>
-			<listener class-name="org.uncommons.reportng.HTMLReporter"/>
-			<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
-			<listener class-name="com.epiphan.qa.tests.reports.CSVReporter"/>
-		</listeners>
-			<test name="MD-3993">
-				<classes>
-					<class name="com.epiphan.qa.tests.MD3993"/>
-				</classes>
-			</test>
-			<test name="DPST">
-				<classes>
-					<class name="com.epiphan.qa.tests.DataProviders"/>
-				</classes>
-			</test>
-	</suite>
+<suite name="Main" verbose="1" parallel="methods" thread-count="10" data-provider-thread-count="5">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+        <listener class-name="com.epiphan.qa.tests.reports.CSVReporter"/>
+    </listeners>
+    <suite-files>
+        <suite-file path="./suites/MD-XXXX.xml"/>"
+    </suite-files>
+</suite>
