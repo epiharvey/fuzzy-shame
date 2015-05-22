@@ -2,6 +2,7 @@ package com.epiphan.qa.grid;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Properties;
 
 import org.apache.http.client.ClientProtocolException;
@@ -25,7 +26,15 @@ public class GridProxy extends DefaultRemoteProxy {
 
 	private volatile int counter;
 
+	private volatile long latestNewSession = 0;
+	
+	private long timeout;
+	
 	private NodePoller pollingThread = null;
+	
+	private Properties properties;
+	
+	
 
 	public GridProxy(RegistrationRequest request, Registry registry)
 			throws IOException {
@@ -33,11 +42,12 @@ public class GridProxy extends DefaultRemoteProxy {
 
 		System.out.println("New proxy instatiated for node at : "
 				+ getRemoteHost().getHost());
-		Properties props = new Properties();
+		properties = new Properties();
 		FileInputStream file = new FileInputStream("./grid.properties");
-		props.load(file);
+		properties.load(file);
 		file.close();
-		counter = Integer.parseInt(props.get("uniqueSessionCount").toString());
+		counter = Integer.parseInt(properties.get("uniqueSessionCount").toString());
+		timeout = Integer.parseInt(properties.get("defaultSessionTimeout").toString());
 	}
 
 	@Override
@@ -64,7 +74,7 @@ public class GridProxy extends DefaultRemoteProxy {
 		if (this.counter == 0) {
 			return false;
 		}
-		--this.counter;
+		this.counter = this.counter - 1;
 		return true;
 	}
 
@@ -81,7 +91,7 @@ public class GridProxy extends DefaultRemoteProxy {
 		}
 		return false;
 	}
-
+/*
 	@Override
 	public void beforeSession(TestSession session) {
 
@@ -90,10 +100,38 @@ public class GridProxy extends DefaultRemoteProxy {
 			super.beforeSession(session);
 		} else {
 			System.out.println("This proxy has no free slots " + ip);
+			System.exit(counter);
 			return;
 		}
 	}
-
+*/
+	
+	@Override
+	public TestSession getNewSession(Map requestedCapability){
+		boolean slotsFree = false;
+		if (shouldReleaseNode()) {
+			return null;
+		}
+		
+		TestSession session = super.getNewSession(requestedCapability);
+		
+		if (session != null) {
+			slotsFree = decrementCounter();
+		}
+		
+		if (!slotsFree) {
+			System.out.println("Node full until refresh");
+		}
+		latestNewSession = System.currentTimeMillis();
+		return session;
+	}
+	
+	public boolean timedOut() {
+		if (System.currentTimeMillis() - latestNewSession >= timeout) {
+			return true;
+		}
+		return false;
+	}
 	/**
 	 * This class is used to poll whether nodes are ready to be let go.
 	 * 
@@ -110,11 +148,16 @@ public class GridProxy extends DefaultRemoteProxy {
 			while (true) {
 				boolean isBusy = proxy.isBusy();
 				boolean canRelease = proxy.shouldReleaseNode();
+				boolean timedOut = proxy.timedOut();
 
 				if (!isBusy && canRelease) {
 					proxy.getRegistry().removeIfPresent(proxy);
 					System.out.println(proxy.getRemoteHost().getHost()
 							+ " has been released from the grid");
+					shutDownNode();
+					return;
+				} else if (isBusy && timedOut) {
+					System.out.println ("Proxy reads as busy, but is timed out");
 					shutDownNode();
 					return;
 				}
