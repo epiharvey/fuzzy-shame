@@ -1,4 +1,4 @@
-package com.epiphan.qa.tests;
+package com.epiphan.qa.tests.util;
 
 import java.util.ArrayList;
 import java.util.Properties;

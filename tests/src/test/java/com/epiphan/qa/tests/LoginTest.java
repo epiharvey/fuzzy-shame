@@ -5,6 +5,8 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
+import com.epiphan.qa.tests.util.*;
+
 
 public class LoginTest {
 	

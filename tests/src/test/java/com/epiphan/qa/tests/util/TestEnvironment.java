@@ -1,4 +1,4 @@
-package com.epiphan.qa.tests;
+package com.epiphan.qa.tests.util;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -7,13 +7,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-class TestEnvironment{
+public class TestEnvironment{
 	WebDriver driver;
-	String hubIP;
-	String targetIP;
-	String targetUser;
-	String targetPass;
-	String browser;
+	public String hubIP;
+	public String targetIP;
+	public String targetUser;
+	public String targetPass;
+	public String browser;
 	
 	public TestEnvironment(String hip, String tip, String tun, String tpw, String brw){
 		hubIP = hip;
@@ -25,7 +25,7 @@ class TestEnvironment{
 	}
 	
 	//for starting a new WebDriver with this environments specs
-	WebDriver startDriver(){
+	public WebDriver startDriver(){
 		URL hubUrl;
 		WebDriver driver;
 		DesiredCapabilities capabilities;

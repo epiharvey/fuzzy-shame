@@ -10,9 +10,11 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.*;
 
+import com.epiphan.qa.tests.util.*;
+
 public class MD3993 {
 	
-	@Test(dataProviderClass=DataProviders.class,dataProvider="env")
+	@Test(dataProviderClass=com.epiphan.qa.tests.util.DataProviders.class,dataProvider="env")
 	public void doTest(TestEnvironment env){
 		
 		
