@@ -8,7 +8,7 @@
     </test>
     <test name="DPST">
         <classes>
-            <class name="com.epiphan.qa.tests.DataProviders"/>
+            <class name="com.epiphan.qa.tests.util.DataProviders"/>
         </classes>
     </test>
  </suite>

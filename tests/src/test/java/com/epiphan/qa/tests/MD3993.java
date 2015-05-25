@@ -17,21 +17,27 @@ public class MD3993 {
 	@Test(dataProviderClass=com.epiphan.qa.tests.util.DataProviders.class,dataProvider="env")
 	public void doTest(TestEnvironment env){
 		
-		
-		ITestResult result = Reporter.getCurrentTestResult();
 		Reporter.log("Starting MD-3993");
+		Reporter.log("targetIP: "+env.targetIP);
+		Reporter.log("hubIP: "+env.hubIP);
+		Reporter.log("browser: "+env.browser);
+		ITestResult result = Reporter.getCurrentTestResult();
 		//Start driver and auth into target
 		WebDriver driver = env.startDriver();
+		WebElement el;
 		
-		Reporter.log("Started WebDriver. Acquiring target");
+		Reporter.log("Log in as: "+env.targetUser+":"+env.targetPass);
 		driver.get("http://"+env.targetUser+":"+env.targetPass+"@"+env.targetIP+"/admin/infocfg");
 		
 		//Go to channel config
-	    driver.findElement(By.linkText("Add channel")).click();
-	    
+	    el = driver.findElement(By.linkText("Add channel"));
+	    Assert.assertNotNull(el, "Could not add channel. Button missing?");
+	    el.click();
+	    	    
 	    //Set up channel
 	    Reporter.log("Setting up channel");
-	    driver.findElement(By.id("channelname")).click();
+	    el = driver.findElement(By.id("channelname"));
+	    Assert.assertNotNull(el, "Could not clear channel name");
 	    driver.findElement(By.name("value")).clear();
 	    driver.findElement(By.name("value")).sendKeys("MD-3993\n");
 	    new Select(driver.findElement(By.id("videosource"))).selectByVisibleText("HDMI-A");

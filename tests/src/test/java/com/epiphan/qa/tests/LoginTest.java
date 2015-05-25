@@ -10,7 +10,7 @@ import com.epiphan.qa.tests.util.*;
 
 public class LoginTest {
 	
-	@Test(dataProviderClass=DataProviders.class,dataProvider="env")
+	@Test(dataProviderClass=com.epiphan.qa.tests.util.DataProviders.class,dataProvider="env")
 	public void logIn(TestEnvironment e){
 		WebDriver d;
 		
