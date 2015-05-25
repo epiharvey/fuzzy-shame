@@ -128,7 +128,7 @@ public class GridProxy extends DefaultRemoteProxy {
 	
 	public boolean timedOut() {
 		if (System.currentTimeMillis() - latestNewSession >= timeout) {
-			return true;
+			//return true;
 		}
 		return false;
 	}
