@@ -36,26 +36,28 @@ public class MD3993 {
 	    	    
 	    //Set up channel
 	    Reporter.log("Setting up channel");
-	    el = driver.findElement(By.id("channelname"));
-	    Assert.assertNotNull(el, "Could not clear channel name");
+	    driver.findElement(By.id("channelname")).click();
 	    driver.findElement(By.name("value")).clear();
 	    driver.findElement(By.name("value")).sendKeys("MD-3993\n");
-	    new Select(driver.findElement(By.id("videosource"))).selectByVisibleText("HDMI-A");
-	    driver.findElement(By.name("audio_D2P280290.analog-a")).click();
-	    driver.findElement(By.cssSelector("input.apply_button")).click();
-	    
+	    driver.findElement(By.cssSelector("[data-ember-action=\"376\"]")).click();
+	    driver.findElement(By.cssSelector(".ember-view.new-source-button")).click();
+	    driver.findElement(By.cssSelector("a.select2-choice b[role=\"presentation\"]")).click();
+	    driver.findElement(By.cssSelector("ul.select2-results li:first-child")).click();
+	    driver.findElement(By.cssSelector(".button.save-button")).click();
+	    Reporter.log("Channel successfully created");
 	    //Visit preview page
 	    Reporter.log("Checking preview");
 	    WebElement e = driver.findElement(By.linkText("MD-3993"));
-	    String channel = StringUtils.split(e.getAttribute("id"),'_')[2];
+	    String channel = StringUtils.split(driver.getCurrentUrl(),'/')[3];
+	    String channum = channel.substring(channel.length()-1);
 	    driver.findElement(By.linkText("Status")).click();
-	    driver.findElement(By.linkText("http://192.168.114.117/preview.cgi?channel="+channel)).click();
+	    driver.findElement(By.linkText("http://"+env.targetIP+"/preview.cgi?channel="+channum)).click();
 	    Assert.assertTrue(StringUtils.endsWith(driver.getTitle(), ":: MD-3993"));
 	    
 	    //Delete channel
 	    Reporter.log("Deleting channel");
 		driver.get("http://"+env.targetUser+":"+env.targetPass+"@"+env.targetIP+"/admin/infocfg");
-	    driver.findElement(By.id("menu_channel_"+channel)).click();
+	    driver.findElement(By.id("menu_channel_"+channum)).click();
 	    driver.findElement(By.cssSelector("#fn_delete > input[type=\"submit\"]")).click();
 	    driver.switchTo().alert().accept();
 	    

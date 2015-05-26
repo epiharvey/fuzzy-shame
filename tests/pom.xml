@@ -28,7 +28,7 @@
 		<defaultTargetPass>${devTargetPass}</defaultTargetPass>
 		<targetPass>${defaultTargetPass}</targetPass>
 
-		<devBrowser>firefox,firefox,firefox</devBrowser>
+		<devBrowser>firefox</devBrowser>
 		<defaultBrowser>${devBrowser}</defaultBrowser>
 		<browser>${defaultBrowser}</browser>
 	</properties>
