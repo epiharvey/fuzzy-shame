@@ -47,7 +47,6 @@ public class MD3993 {
 	    Reporter.log("Channel successfully created");
 	    //Visit preview page
 	    Reporter.log("Checking preview");
-	    WebElement e = driver.findElement(By.linkText("MD-3993"));
 	    String channel = StringUtils.split(driver.getCurrentUrl(),'/')[3];
 	    String channum = channel.substring(channel.length()-1);
 	    driver.findElement(By.linkText("Status")).click();
