@@ -15,7 +15,7 @@ public class TestEnvironment{
 	public String targetUser;
 	public String targetPass;
 	public String browser;
-	public String os;
+	public String platform;
 	
 	public TestEnvironment(String hip, String tip, String tun, String tpw, String brw, String s){
 		hubIP = hip;
@@ -23,7 +23,7 @@ public class TestEnvironment{
 		targetUser = tun;
 		targetPass = tpw;
 		browser = brw;
-		os = s;
+		platform = s;
 		driver = null;
 	}
 	
@@ -41,7 +41,7 @@ public class TestEnvironment{
 		}
 		capabilities = new DesiredCapabilities();
 		capabilities.setCapability("browserName", browser);
-		switch (os){
+		switch (platform){
 		case "linux":
 			capabilities.setPlatform(Platform.LINUX);
 			break;

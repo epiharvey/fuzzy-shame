@@ -17,7 +17,7 @@ public class MD3993 {
 	@Test(dataProviderClass=com.epiphan.qa.tests.util.DataProviders.class,dataProvider="env")
 	public void doTest(TestEnvironment env){
 		
-		Reporter.log("Starting MD-3993");
+		Reporter.log("Starting MD-3993 on ["+env.browser+"] under ["+env.platform+"]");
 		Reporter.log("targetIP: "+env.targetIP);
 		Reporter.log("hubIP: "+env.hubIP);
 		Reporter.log("browser: "+env.browser);
