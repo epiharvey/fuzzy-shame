@@ -3,6 +3,7 @@ package com.epiphan.qa.tests.util;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -14,13 +15,15 @@ public class TestEnvironment{
 	public String targetUser;
 	public String targetPass;
 	public String browser;
+	public String os;
 	
-	public TestEnvironment(String hip, String tip, String tun, String tpw, String brw){
+	public TestEnvironment(String hip, String tip, String tun, String tpw, String brw, String s){
 		hubIP = hip;
 		targetIP = tip;
 		targetUser = tun;
 		targetPass = tpw;
 		browser = brw;
+		os = s;
 		driver = null;
 	}
 	
@@ -38,6 +41,17 @@ public class TestEnvironment{
 		}
 		capabilities = new DesiredCapabilities();
 		capabilities.setCapability("browserName", browser);
+		switch (os){
+		case "linux":
+			capabilities.setCapability("platform", Platform.LINUX);
+			break;
+		case "windows":
+			capabilities.setCapability("platform", Platform.WINDOWS);
+			break;
+		case "mac":
+			capabilities.setCapability("platform", Platform.MAC);
+			break;
+		}
 		System.out.println("Connecting to hub at "+hubIP);
 		driver = new RemoteWebDriver(hubUrl, capabilities);
 		System.out.println("Connected");

@@ -22,6 +22,7 @@ public class MD3993 {
 		Reporter.log("hubIP: "+env.hubIP);
 		Reporter.log("browser: "+env.browser);
 		ITestResult result = Reporter.getCurrentTestResult();
+		
 		//Start driver and auth into target
 		WebDriver driver = env.startDriver();
 		WebElement el;
@@ -45,6 +46,7 @@ public class MD3993 {
 	    driver.findElement(By.cssSelector("ul.select2-results li:first-child")).click();
 	    driver.findElement(By.cssSelector(".button.save-button")).click();
 	    Reporter.log("Channel successfully created");
+	    
 	    //Visit preview page
 	    Reporter.log("Checking preview");
 	    String channel = StringUtils.split(driver.getCurrentUrl(),'/')[3];

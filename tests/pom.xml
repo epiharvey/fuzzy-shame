@@ -28,9 +28,13 @@
 		<defaultTargetPass>${devTargetPass}</defaultTargetPass>
 		<targetPass>${defaultTargetPass}</targetPass>
 
-		<devBrowser>firefox</devBrowser>
-		<defaultBrowser>${devBrowser}</defaultBrowser>
-		<browser>${defaultBrowser}</browser>
+		<devTargetBrowser>firefox</devTargetBrowser>
+		<defaultTargetBrowser>${devBrowser}</defaultTargetBrowser>
+		<targetBrowser>${defaultBrowser}</targetBrowser>
+		
+		<devTargetOS>linux</devTargetOS>
+		<defaultTargetOS>${devTargetOS}</defaultTargetOS>
+		<targetOS>$defaultTargetOS</targetOS>
 	</properties>
 	<build>
 		<plugins>
@@ -55,6 +59,7 @@
 						<targetUser>${targetUser}</targetUser>
 						<targetPass>${targetPass}</targetPass>
 						<browser>${browser}</browser>
+						<targetOS>${targetOS}</targetOS>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>

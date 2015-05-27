@@ -26,12 +26,15 @@ public class DataProviders {
 		String[] targetIP = StringUtils.split(p.getProperty("targetIP"), ",");
 		String targetUser = p.getProperty("targetUser");
 		String targetPass = p.getProperty("targetPass");
-		String[] browser = StringUtils.split(p.getProperty("browser"), ",");
+		String[] browser = StringUtils.split(p.getProperty("targetBrowser"), ",");
+		String[] os	= StringUtils.split(p.getProperty("targetOS"), ",");
 
 		for(String ip : targetIP){
 			for(String bsr : browser){
-				Object[] o = {new TestEnvironment(hubIP, ip, targetUser, targetPass, bsr)};
-				envs.add(o);
+				for(String s : os){
+					Object[] o = {new TestEnvironment(hubIP, ip, targetUser, targetPass, bsr, s)};
+					envs.add(o);
+				}
 			}
 		}
 
