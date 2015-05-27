@@ -415,9 +415,13 @@ targetIP
     presumably these will be the IP addresses of Pearls, Grids, etc..
     The default is "192.168.114.23"
 
-browser
+targetBrowser
     A comma separated list of browsers against which to run the test(s).
     The default is "firefox"
+
+targetOS
+    A comma separated list of operating systems against which to run the test(s)
+    The default is "linux"
 
 targetUser
     The username to log in to the devices at targetIP.
