@@ -29,12 +29,12 @@
 		<targetPass>${defaultTargetPass}</targetPass>
 
 		<devTargetBrowser>firefox</devTargetBrowser>
-		<defaultTargetBrowser>${devBrowser}</defaultTargetBrowser>
-		<targetBrowser>${defaultBrowser}</targetBrowser>
+		<defaultTargetBrowser>${devTargetBrowser}</defaultTargetBrowser>
+		<targetBrowser>${defaultTargetBrowser}</targetBrowser>
 		
 		<devTargetOS>linux</devTargetOS>
 		<defaultTargetOS>${devTargetOS}</defaultTargetOS>
-		<targetOS>$defaultTargetOS</targetOS>
+		<targetOS>${defaultTargetOS}</targetOS>
 	</properties>
 	<build>
 		<plugins>
@@ -58,7 +58,7 @@
 						<hubIP>${hubIP}</hubIP>
 						<targetUser>${targetUser}</targetUser>
 						<targetPass>${targetPass}</targetPass>
-						<browser>${browser}</browser>
+						<targetBrowser>${targetBrowser}</targetBrowser>
 						<targetOS>${targetOS}</targetOS>
 					</systemPropertyVariables>
 				</configuration>

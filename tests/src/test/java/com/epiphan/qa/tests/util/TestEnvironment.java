@@ -43,14 +43,18 @@ public class TestEnvironment{
 		capabilities.setCapability("browserName", browser);
 		switch (os){
 		case "linux":
-			capabilities.setCapability("platform", Platform.LINUX);
+			capabilities.setPlatform(Platform.LINUX);
 			break;
 		case "windows":
-			capabilities.setCapability("platform", Platform.WINDOWS);
+			capabilities.setPlatform(Platform.WINDOWS);
 			break;
 		case "mac":
-			capabilities.setCapability("platform", Platform.MAC);
+			capabilities.setPlatform(Platform.MAC);
 			break;
+		default:
+			capabilities.setPlatform(Platform.LINUX);
+			break;
+				
 		}
 		System.out.println("Connecting to hub at "+hubIP);
 		driver = new RemoteWebDriver(hubUrl, capabilities);

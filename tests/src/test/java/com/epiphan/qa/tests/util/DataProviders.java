@@ -22,12 +22,13 @@ public class DataProviders {
 		ArrayList<Object[]> envs = new ArrayList<Object[]>();
 
 		Properties p = System.getProperties();
+		//System.out.println(p.toString());
 		String hubIP = p.getProperty("hubIP");
-		String[] targetIP = StringUtils.split(p.getProperty("targetIP"), ",");
+		String[] targetIP = StringUtils.split(p.getProperty("targetIP"), ',');
 		String targetUser = p.getProperty("targetUser");
 		String targetPass = p.getProperty("targetPass");
-		String[] browser = StringUtils.split(p.getProperty("targetBrowser"), ",");
-		String[] os	= StringUtils.split(p.getProperty("targetOS"), ",");
+		String[] browser = StringUtils.split(p.getProperty("targetBrowser"), ',');
+		String[] os	= StringUtils.split(p.getProperty("targetOS"), ',');
 
 		for(String ip : targetIP){
 			for(String bsr : browser){
@@ -43,8 +44,8 @@ public class DataProviders {
 		return ret;
 	}
 
-	@Test
-	public void selfTest(){
+	@Test(dataProvider="env")
+	public void selfTest(TestEnvironment e){
 		DataProviders.env();
 	}
 
