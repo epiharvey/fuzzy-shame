@@ -163,6 +163,7 @@ public class CSVReporter implements IReporter {
 	private void writeTestInfo(ISuite s, ITestResult r, BufferedWriter w) {
 
 		try {
+			
 			w.write(s.getName());
 			w.write(",");
 			w.write(r.getTestClass().getName());
@@ -182,7 +183,7 @@ public class CSVReporter implements IReporter {
 			w.write(String.valueOf(r.getEndMillis() - r.getStartMillis()));
 			w.write(",");
 			w.flush();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 			return;
@@ -297,7 +298,7 @@ public class CSVReporter implements IReporter {
 			w.write(String.valueOf(passed)+" ("+String.valueOf(ppercent)+"%)");
 			w.write(",");
 			w.write(String.valueOf(skipped)+" ("+String.valueOf(spercent)+"%)");
-			w.write("\n--------,--------,--------,--------,--------,--------\n");
+			w.write("\n--------,--------,--------,--------,--------,--------,--------\n");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
