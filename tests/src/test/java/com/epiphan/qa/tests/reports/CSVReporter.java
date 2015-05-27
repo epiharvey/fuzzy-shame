@@ -65,7 +65,7 @@ public class CSVReporter implements IReporter {
 		
 		writeHeader(iSuites, report);
 		try {
-			report.write("SUITE, TEST, METHOD, STATUS, TIME (ms), LOG, THROWABLE\n");
+			report.write("NAME, SUITE, CLASS, METHOD, STATUS, TIME (ms), LOG, THROWABLE\n");
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -91,7 +91,7 @@ public class CSVReporter implements IReporter {
 				
 				for (ITestResult testResult : testsFailed) {
 
-					writeTestInfo(suite, testResult, report);
+					writeTestInfo(suite, testResult, report, testName);
 					writeTestLog(suite, testResult, report);
 					writeTestThrowable(suite, testResult, report);
 					nextRecord(report);
@@ -101,7 +101,7 @@ public class CSVReporter implements IReporter {
 
 				for (ITestResult testResult : testsPassed) {
 
-					writeTestInfo(suite, testResult, report);
+					writeTestInfo(suite, testResult, report, testName);
 					writeTestLog(suite, testResult, report);
 					writeTestThrowable(suite, testResult, report);
 					nextRecord(report);
@@ -110,7 +110,7 @@ public class CSVReporter implements IReporter {
 
 				for (ITestResult testResult : testsSkipped) {
 
-					writeTestInfo(suite, testResult, report);
+					writeTestInfo(suite, testResult, report, testName);
 					writeTestLog(suite, testResult, report);
 					writeTestThrowable(suite, testResult, report);
 					nextRecord(report);
@@ -160,10 +160,11 @@ public class CSVReporter implements IReporter {
 	 * @param w The <code>BufferedWriter</code> to print out the test info.
 	 * This should be a BufferedWriter pointing to the report file
 	 */
-	private void writeTestInfo(ISuite s, ITestResult r, BufferedWriter w) {
+	private void writeTestInfo(ISuite s, ITestResult r, BufferedWriter w, String n) {
 
 		try {
-			
+			w.write(n);
+			w.write(",");
 			w.write(s.getName());
 			w.write(",");
 			w.write(r.getTestClass().getName());
