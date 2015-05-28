@@ -1,10 +1,15 @@
 package com.epiphan.qa.tests;
 
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.Reporter;
@@ -30,6 +35,7 @@ public class MD3993 {
 		Reporter.log("Log in as: "+env.targetUser+":"+env.targetPass);
 		driver.get("http://"+env.targetUser+":"+env.targetPass+"@"+env.targetIP+"/admin/infocfg");
 		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		//Go to channel config
 	    el = driver.findElement(By.linkText("Add channel"));
 	    Assert.assertNotNull(el, "Could not add channel. Button missing?");
@@ -41,8 +47,9 @@ public class MD3993 {
 	    driver.findElement(By.name("value")).clear();
 	    driver.findElement(By.name("value")).sendKeys("MD-3993\n");
 	    driver.findElement(By.cssSelector("[data-ember-action=\"376\"]")).click();
+	    new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ember-view.new-source-button")));
 	    driver.findElement(By.cssSelector(".ember-view.new-source-button")).click();
-	    driver.findElement(By.cssSelector("a.select2-choice b[role=\"presentation\"]")).click();
+	    driver.findElement(By.cssSelector("a.select2-choice")).click();
 	    driver.findElement(By.cssSelector("ul.select2-results li:first-child")).click();
 	    driver.findElement(By.cssSelector(".button.save-button")).click();
 	    Reporter.log("Channel successfully created");
@@ -60,7 +67,10 @@ public class MD3993 {
 		driver.get("http://"+env.targetUser+":"+env.targetPass+"@"+env.targetIP+"/admin/infocfg");
 	    driver.findElement(By.id("menu_channel_"+channum)).click();
 	    driver.findElement(By.cssSelector("#fn_delete > input[type=\"submit\"]")).click();
+	    new WebDriverWait(driver, 10).until(ExpectedConditions.alertIsPresent());
 	    driver.switchTo().alert().accept();
+	    List<WebElement> elements = driver.findElements(By.xpath("//*[contains(text(),'successfully deleted')]"));
+	    Assert.assertTrue(elements.size() > 0, "Channel Deletion Unsuccessful");
 	    
 	    //Cleanup
 	    driver.quit();
