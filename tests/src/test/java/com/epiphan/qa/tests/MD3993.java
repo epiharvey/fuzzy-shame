@@ -8,6 +8,8 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -36,7 +38,6 @@ public class MD3993 {
 		//Start driver and auth into target
 		WebDriver driver = env.startDriver();
 		WebElement el;
-		
 		Reporter.log("Log in as: "+env.targetUser+":"+env.targetPass);
 		driver.get("http://"+env.targetUser+":"+env.targetPass+"@"+env.targetIP+"/admin/infocfg");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -70,6 +71,16 @@ public class MD3993 {
 	    String channum = channel.substring(channel.length()-1);
 	    driver.findElement(By.linkText("Status")).click();
 	    driver.findElement(By.linkText("http://"+env.targetIP+"/preview.cgi?channel="+channum)).click();
+	    TakesScreenshot scr = (TakesScreenshot)driver;
+	    byte[] scrbytes1 = scr.getScreenshotAs(OutputType.BYTES);
+	    try {
+			driver.wait(5000);
+		} catch (InterruptedException e) {
+			Reporter.log("Interrupted while waiting for screencap");
+			Assert.assertTrue(false, "Interrupted while waiting for screencap");
+		}
+	    byte[] scrbytes2 = scr.getScreenshotAs(OutputType.BYTES);
+	    Assert.assertNotEquals(scrbytes1, scrbytes2);
 	    Assert.assertTrue(StringUtils.endsWith(driver.getTitle(), ":: MD-3993"));
 	    
 	    //Delete channel

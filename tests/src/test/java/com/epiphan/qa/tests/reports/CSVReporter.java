@@ -294,11 +294,18 @@ public class CSVReporter implements IReporter {
 			w.write(",");
 			w.write(String.valueOf(time/tests));
 			w.write(",");
-			w.write(String.valueOf(failed)+" ("+String.valueOf(fpercent)+"%)");
+			w.write(String.valueOf(failed));
 			w.write(",");
-			w.write(String.valueOf(passed)+" ("+String.valueOf(ppercent)+"%)");
+			w.write(String.valueOf(passed));
 			w.write(",");
-			w.write(String.valueOf(skipped)+" ("+String.valueOf(spercent)+"%)");
+			w.write(String.valueOf(skipped));
+			w.write("\n");
+			w.write(",,,");
+			w.write(String.valueOf(fpercent)+"%)");
+			w.write(",");
+			w.write(String.valueOf(ppercent)+"%)");
+			w.write(",");
+			w.write(String.valueOf(spercent)+"%)");
 			w.write("\n--------,--------,--------,--------,--------,--------,--------\n");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
