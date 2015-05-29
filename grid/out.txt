@@ -1,0 +1,139 @@
+[INFO] Error stacktraces are turned on.
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building grid 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ grid ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ grid ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ grid ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ grid ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ grid ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ grid ---
+[INFO] Building jar: /home/ian/git/fuzzy-shame/grid/target/grid-1.0.jar
+[INFO] 
+[INFO] >>> maven-assembly-plugin:2.5.4:assembly (NodeSpawner) > package @ grid >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ grid ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ grid ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ grid ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ grid ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ grid ---
+[INFO] Skipping execution of surefire because it has already been run for this configuration
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ grid ---
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.5.4:single (dist) @ grid ---
+[INFO] Reading assembly descriptor: src/main/assembly/dist.xml
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[INFO] Building tar: /home/ian/git/fuzzy-shame/grid/target/grid-1.0-dist.tar.gz
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[INFO] Building tar: /home/ian/git/fuzzy-shame/grid/target/grid-1.0-dist.tar.bz2
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[INFO] Building zip: /home/ian/git/fuzzy-shame/grid/target/grid-1.0-dist.zip
+[INFO] 
+[INFO] <<< maven-assembly-plugin:2.5.4:assembly (NodeSpawner) < package @ grid <<<
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.5.4:assembly (NodeSpawner) @ grid ---
+[INFO] Building jar: /home/ian/git/fuzzy-shame/grid/target/pack/spawn.jar
+[WARNING] Configuration options: 'appendAssemblyId' is set to false, and 'classifier' is missing.
+Instead of attaching the assembly file: /home/ian/git/fuzzy-shame/grid/target/pack/spawn.jar, it will become the file for main project artifact.
+NOTE: If multiple descriptors or descriptor-formats are provided for this project, the value of this file will be non-deterministic!
+[WARNING] Replacing pre-existing project main-artifact file: /home/ian/git/fuzzy-shame/grid/target/grid-1.0.jar
+with assembly file: /home/ian/git/fuzzy-shame/grid/target/pack/spawn.jar
+[INFO] 
+[INFO] >>> maven-assembly-plugin:2.5.4:assembly (GridNode) > package @ grid >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ grid ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ grid ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ grid ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ grid ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ grid ---
+[INFO] Skipping execution of surefire because it has already been run for this configuration
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ grid ---
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.5.4:single (dist) @ grid ---
+[INFO] Reading assembly descriptor: src/main/assembly/dist.xml
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[INFO] Building tar: /home/ian/git/fuzzy-shame/grid/target/grid-1.0-dist.tar.gz
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[INFO] Building tar: /home/ian/git/fuzzy-shame/grid/target/grid-1.0-dist.tar.bz2
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[INFO] Building zip: /home/ian/git/fuzzy-shame/grid/target/grid-1.0-dist.zip
+[INFO] 
+[INFO] <<< maven-assembly-plugin:2.5.4:assembly (GridNode) < package @ grid <<<
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.5.4:assembly (GridNode) @ grid ---
+[INFO] Building jar: /home/ian/git/fuzzy-shame/grid/target/pack/grid.jar
+[WARNING] Configuration options: 'appendAssemblyId' is set to false, and 'classifier' is missing.
+Instead of attaching the assembly file: /home/ian/git/fuzzy-shame/grid/target/pack/grid.jar, it will become the file for main project artifact.
+NOTE: If multiple descriptors or descriptor-formats are provided for this project, the value of this file will be non-deterministic!
+[WARNING] Replacing pre-existing project main-artifact file: /home/ian/git/fuzzy-shame/grid/target/grid-1.0.jar
+with assembly file: /home/ian/git/fuzzy-shame/grid/target/pack/grid.jar
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.5.4:single (dist) @ grid ---
+[INFO] Reading assembly descriptor: src/main/assembly/dist.xml
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[INFO] Building tar: /home/ian/git/fuzzy-shame/grid/target/grid-1.0-dist.tar.gz
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[INFO] Building tar: /home/ian/git/fuzzy-shame/grid/target/grid-1.0-dist.tar.bz2
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[WARNING] The assembly descriptor contains a filesystem-root relative reference, which is not cross platform compatible /
+[INFO] Building zip: /home/ian/git/fuzzy-shame/grid/target/grid-1.0-dist.zip
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 54.641 s
+[INFO] Finished at: 2015-05-27T17:31:08-04:00
+[INFO] Final Memory: 83M/462M
+[INFO] ------------------------------------------------------------------------
