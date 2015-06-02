@@ -498,7 +498,7 @@ Selenium documentation. Do not count on this. Selenium is very poorly
 documented. For questions not answered there, check the w3c WebDriver spec.
 
 See `/fuzzy-shame/tests/src/test/java/com/epiphan/qa/tests/MD3993.java` for an
-example test case.
+example test case.  
 
 When defining test suites, please create a new suite xml file for each suite.
 The name of the file should follow the form: `suitename.xml`. For example, a
