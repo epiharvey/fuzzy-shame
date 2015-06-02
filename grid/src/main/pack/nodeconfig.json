@@ -1,0 +1,46 @@
+{
+  "capabilities":
+      [
+        {
+          "browserName": "*firefox",
+          "maxInstances": 5,
+          "seleniumProtocol": "Selenium"
+        },
+        {
+          "browserName": "*googlechrome",
+          "maxInstances": 5,
+          "seleniumProtocol": "Selenium"
+        },
+	{
+	  "browserName": "*iexplore",
+	  "maxInstances": 0,
+	  "seleniumProtocol": "Selenium"
+	},
+        {
+          "browserName": "firefox",
+          "maxInstances": 5,
+          "seleniumProtocol": "WebDriver"
+        },
+        {
+          "browserName": "chrome",
+          "maxInstances": 5,
+          "seleniumProtocol": "WebDriver"
+        },
+        {
+          "browserName": "internet explorer",
+          "maxInstances": 0,
+          "seleniumProtocol": "WebDriver"
+        }
+      ],
+  "configuration":
+  {
+    "proxy": "com.epiphan.qa.grid.GridProxy",
+    "maxSession": 5,
+    "port": 5555,
+    "host": ip,
+    "register": true,
+    "registerCycle": 5000,
+    "hubPort": 4444,
+    "hubHost": ip
+  }
+}

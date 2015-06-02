@@ -28,7 +28,7 @@
   								<mainClass>com.epiphan.qa.grid.NodeSpawner</mainClass>
   							</manifest>
   						</archive>
-  						<finalName>spawn</finalName>
+  						<finalName>pack/spawn</finalName>
   						<appendAssemblyId>false</appendAssemblyId>
   					</configuration>
   				</execution>
@@ -49,9 +49,21 @@
   								<packageName>org.openqa.grid.selenium</packageName>
   							</manifest>
   						</archive>
-  						<finalName>grid</finalName>
+  						<finalName>pack/grid</finalName>
   						<appendAssemblyId>false</appendAssemblyId>
   					</configuration>
+  				</execution>
+  				<execution>
+  				  <id>dist</id>
+  				  <phase>package</phase>
+  				  <goals>
+  				      <goal>single</goal>
+  				  </goals>
+  				  <configuration>
+  				      <descriptors>
+  				          <descriptor>src/main/assembly/dist.xml</descriptor>
+  				      </descriptors>
+  				  </configuration>
   				</execution>
   			</executions>
   		</plugin>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="[MD-XXXX]" verbose="10">
+<suite name="[MD-XXXX]" verbose="10" parallel="methods" thread-count="2" data-provider-thread-count="5">
     
     <test name="MD-3993">
         <classes>
             <class name="com.epiphan.qa.tests.MD3993"/>
         </classes>
     </test>
-    <test name="DPST">
+    <!-- <test name="DPST">
         <classes>
             <class name="com.epiphan.qa.tests.util.DataProviders"/>
         </classes>
-    </test>
+    </test> -->
  </suite>
