@@ -260,9 +260,16 @@ modified Selenium grid as described in [[2.2]](#22-grid)
 * When running through `spawn.jar`, provide program arguments just as you
   normally would. The full list of command line arguments for `grid.jar` can
   be found by running `java -jar grid.jar -h`
-* currently, running the grid through `spawner.jar` does not invoke the
-  custom servelets or proxies correctly.  
-  ***TODO*** update docs when this is fixed.
+* If you wish to test against browsers other than firefox, you will need a 
+  WebDriver for those browsers. Drivers for both Chrome and IE are bundled 
+  with the grid package. In order to invoke them, use the command line option
+  `-DwebDriver.chrome.driver="<path-to-chromedriver>"` or
+  `-DwebDriver.ie.driver="<path-to-iedriver>"`. Depending on your OS, 
+  the chromedriver to use will be `chromedriver.exe` for windows, 
+  `cromedriver_mac` for mac, `chromedriver` for 32bit linux, or 
+  `chromedriver_64` for 64bit linux.
+* Browsers other than FireFox and Chrome are unsupported until BASIC
+  authentication can be made to work seamlessly across them.
 
 ##[4] Use<a name="use"></a>##
 ###[4.1] Grid Options<a name="grid-options"></a>###
