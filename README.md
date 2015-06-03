@@ -25,8 +25,8 @@ In this document, the following sections should be present.
         * [[3.2.2] Notes](#notes-1)
 * [[4] Use](#use)
     * [[4.1] Grid Options](#grid-options)
-    * [[4.2] Running Tests*](#running-tests)
-    * [[4.3] Writing Tests*](#writing-tests)
+    * [[4.2] Running Tests](#running-tests)
+    * [[4.3] Writing Tests](#writing-tests)
 
 \pagebreak
 
