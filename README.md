@@ -20,12 +20,9 @@ In this document, the following sections should be present.
     * [[3.1] Git and Maven](#git-and-maven)
         * [[3.1.1] Steps](#steps)
         * [[3.1.2] Notes](#notes)
-    * [[3.2] Jenkins](#jenkins)
-        * [[3.2.1] Steps](#steps-1)
-        * [[3.2.2] Notes](#notes-1)
-    * [[3.3] Setting up the Grid*](#setting-up-the-grid)
-        * [[3.3.1] Steps](#steps-2)
-        * [[3.3.2] Notes](#notes-2)
+    * [[3.2] Setting up the Grid](#setting-up-the-grid)
+        * [[3.2.1] Steps](#steps-2)
+        * [[3.2.2] Notes](#notes-2)
 * [[4] Use](#use)
     * [[4.1] Grid Options](#grid-soptions)
     * [[4.2] Running Tests*](#running-tests)
@@ -111,9 +108,10 @@ controlling a configurable number of browser instances. For example, one node
 could be in control of 10 Firefox browsers, 6 instances of Chrome, and 1 of
 Internet Explorer. Each of these browser instances is a 'test slot' which can
 accommodate 1 test at a time.
-The hub is the central point to which the tests and the nodes connect. All data
-within the grid flows through the hub. When a test program connects to the hub,
-it is assigned to a node with an open test slot matching it's requirements.
+The hub is the central point to which the tests and the nodes connect. All 
+test data within the grid flows through the hub. When a test program connects 
+to the hub, it is assigned to a node with an open test slot matching it's 
+requirements.
 
 Unfortunately, vanilla Selenium nodes are prone to getting stuck under some
 circumstances. Whenever some event causes a Selenium-controlled browser
@@ -162,8 +160,8 @@ even with multiple parties contributing new code, or alterations.
 2.  Install the latest version of Git [version 1.9.1 at 2015-05-13]
 3.  checkout a copy of the
     [repository](http://github.com/epiharvey/fuzzy-shame).
-4.  Create a personal git branch of the repository. This will allow you to
-    work without stepping on anybody's toes.  
+4.  Create a personal branch off the `master` branch of the repository. 
+	This will allow you to work without stepping on anybody's toes.  
     The idea is that the master branch should always be in a functional state,
     and developments from testers personal branches are merged in only when
     they are ready.
@@ -176,83 +174,39 @@ even with multiple parties contributing new code, or alterations.
 * The full list of command line options for `grid.jar` can be found in
   [[4.1]](#41-grid-options), or by running `java -jar grid.jar -h`
 
-###[3.2] Jenkins<a name="jenkins"></a>###
-
-Using Jenkins CI as a build manager allows us to run the latest version of the
-entire test system against (a) target(s) at specified times.
-Depending on the configuration of Jenkins, the tests can be run periodically
-(for example, every day at midnight), or when triggered by certain events
-(for example, on every commit to a Git repository containing the test code).
-This setup is ideal if you want to run tests on a separate computer in order to
-keep your development machine free for other tasks while tests are running.  
-Additionally, Jenkins offers a convenient web based interface for use on
-headless machines, and has a wide range of plugins available for such things as
-test reporting, and integration with Confluence / JIRA.
-
-####[3.2.1] Steps<a name="steps-1"></a>####
-
-1.  Install the latest version of Maven [version 3.3.3 at 2015-05-12]
-2.  Install the latest version of Git for your OS [version 1.9.1 at 2015-05-12]
-3.  Install the latest version of Jenkins [version 1.613 at 2015-05-12]
-4.  In Jenkins, under `Manage Jenkins`>`Manage Plugins`>`Available`
-    select `Git Client Plugin` and click
-    `Download now and install after restart`
-5.  Create a `New Item` and give it a suitable name, select `Maven Project` as
-    the project type and press `OK`
-6.  By default, Jenkins keeps all build artifacts until the end of time.
-    I recommend that you select `Discard Old Builds` (unless you have a very
-    good reason for doing otherwise), setting an appropriate time to live, or
-    number of builds to keep.
-7.  Under `Source Code Management` select `Git`  
-    The repostiory location is `git://github.com/epiharvey/fuzzy-shame`  
-    See Ian Harvey in QA to get the repository cridentials. Bring a USB drive.
-8.  Run a build to ensure that everything is set up correctly.
-
-####[3.2.2] Notes<a name="notes-1"></a>####
-
-* When first setting up a Jenkins project, it may be necessary to point Jenkins
-  to the local Maven installation you want to use.
-* Feel free to play around with additional plugins for test reporting,
-  Confluence/JIRA integration, etc... Jenkins can't push to Git, so you can't
-  break anything important.
-* If you don't want to compile the grid module on every build, point Jenkins
-  to `/fuzzy-shame/tests/pom.xml` instead of `/fuzzy-shame/pom.xml`
-
-
-###[3.3] Setting up the Grid<a name="setting-up-the-grid"></a>##
+###[3.2] Setting up the Grid<a name="setting-up-the-grid"></a>##
 
 Before using the automated test system, it is necessary to provide an
 infrastructure upon which tests can be run. This entails setting up a
 modified Selenium grid as described in [[2.2]](#22-grid)  
 
-####[3.3.1] Steps<a name="steps-2"></a>####
+####[3.2.1] Steps<a name="steps-2"></a>####
 
-1.  Obtain working copies of both `grid.jar` and `spawn.jar`. these can be
-    created by running `mvn clean install` on the `grid` module.
-    The files `grid.jar`, `spawn.jar`, and `grid-<version>.jar` will be created
-    in `/fuzzy-shame/grid/target/`. Pay no attention to `grid-<version>.jar`. It
-    contains all the classes in the `grid` module ,and will be installed to
-    your local Maven repository for use in other projects. You may leave
-    `grid.jar` and `spawn.jar` in place, or move them to a convenient location
-    on your local filesystem.
-2.  ensure that a file called `grid.properties` exists in the same directory as
-    `grid.jar` and `spawn.jar`. Enusre that `grid.properties` contains the
-    lines `defaultInterval=10000` and `uniqueSessionCount=10`
+1.  Obtain a working copy of the grid package. This can be dome by running
+    `mvn clean install` on the `grid` module.
+    The file `grid-<version>.zip` will be created in 
+    `/fuzzy-shame/grid/target/`. 
+    Pay no attention to `grid-<version>.jar`. It contains all the classes in 
+    the `grid` module ,and will be installed to your local Maven repository 
+    for use in other projects. You may extract `grid-<version>.zip` to a 
+    convenient location.
+2.  Open a shell and enter the directory where you extracted the contents of 
+    `grid-<version>.zip`
 2.  Create a Selenuim hub. To do this, run
     `java -jar spawn.jar grid.jar -role hub`.
     You may optionally specify the `-port <port>` parameter to set the port on
     which the hub will listen for incoming connections from nodes
-    (default 4444)and/or the `-hubConfig <file.json>` parameter. to specify
+    (default 4444)and/or the `-hubConfig hubconfig.json` parameter. to specify
     a configuration file for the hub.
 3.  Create Selenium nodes. The hub cannot run tests on its own, it simply
     delegates work to nodes which control browser instances. To create a node,
     run
     `java -jar spawn.jar grid.jar -role node
     -hub http://<hub IP address>/grid/register`
-    You may set the `-nodeConfig <file.json>` parameter to specify a
+    You may set the `-nodeConfig nodeconfig.json` parameter to specify a
     configuration file for the node.
 
-####[3.3.2] Notes<a name="notes-2"></a>####
+####[3.2.2] Notes<a name="notes-2"></a>####
 
 * The reason we run `grid.jar` through `spawn.jar` rather than straight through
   `java -jar` is that `spawn.jar` acts as a watchdog, restarting dead nodes
@@ -260,9 +214,16 @@ modified Selenium grid as described in [[2.2]](#22-grid)
 * When running through `spawn.jar`, provide program arguments just as you
   normally would. The full list of command line arguments for `grid.jar` can
   be found by running `java -jar grid.jar -h`
-* currently, running the grid through `spawner.jar` does not invoke the
-  custom servelets or proxies correctly.  
-  ***TODO*** update docs when this is fixed.
+* If you wish to test against browsers other than firefox, you will need a 
+  WebDriver for those browsers. Drivers for both Chrome and IE are bundled 
+  with the grid package. In order to invoke them, use the command line option
+  `-DwebDriver.chrome.driver="<path-to-chromedriver>"` or
+  `-DwebDriver.ie.driver="<path-to-iedriver>"`. Depending on your OS, 
+  the chromedriver to use will be `chromedriver.exe` for windows, 
+  `cromedriver_mac` for mac, `chromedriver` for 32bit linux, or 
+  `chromedriver_64` for 64bit linux.
+* Browsers other than FireFox and Chrome are unsupported until BASIC
+  authentication can be made to work seamlessly across them.
 
 ##[4] Use<a name="use"></a>##
 ###[4.1] Grid Options<a name="grid-options"></a>###
