@@ -108,9 +108,10 @@ controlling a configurable number of browser instances. For example, one node
 could be in control of 10 Firefox browsers, 6 instances of Chrome, and 1 of
 Internet Explorer. Each of these browser instances is a 'test slot' which can
 accommodate 1 test at a time.
-The hub is the central point to which the tests and the nodes connect. All data
-within the grid flows through the hub. When a test program connects to the hub,
-it is assigned to a node with an open test slot matching it's requirements.
+The hub is the central point to which the tests and the nodes connect. All 
+test data within the grid flows through the hub. When a test program connects 
+to the hub, it is assigned to a node with an open test slot matching it's 
+requirements.
 
 Unfortunately, vanilla Selenium nodes are prone to getting stuck under some
 circumstances. Whenever some event causes a Selenium-controlled browser
