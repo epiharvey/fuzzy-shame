@@ -21,10 +21,10 @@ In this document, the following sections should be present.
         * [[3.1.1] Steps](#steps)
         * [[3.1.2] Notes](#notes)
     * [[3.2] Setting up the Grid](#setting-up-the-grid)
-        * [[3.2.1] Steps](#steps-2)
-        * [[3.2.2] Notes](#notes-2)
+        * [[3.2.1] Steps](#steps-1)
+        * [[3.2.2] Notes](#notes-1)
 * [[4] Use](#use)
-    * [[4.1] Grid Options](#grid-soptions)
+    * [[4.1] Grid Options](#grid-options)
     * [[4.2] Running Tests*](#running-tests)
     * [[4.3] Writing Tests*](#writing-tests)
 
@@ -180,7 +180,7 @@ Before using the automated test system, it is necessary to provide an
 infrastructure upon which tests can be run. This entails setting up a
 modified Selenium grid as described in [[2.2]](#22-grid)  
 
-####[3.2.1] Steps<a name="steps-2"></a>####
+####[3.2.1] Steps<a name="steps-1"></a>####
 
 1.  Obtain a working copy of the grid package. This can be dome by running
     `mvn clean install` on the `grid` module.
@@ -206,7 +206,7 @@ modified Selenium grid as described in [[2.2]](#22-grid)
     You may set the `-nodeConfig nodeconfig.json` parameter to specify a
     configuration file for the node.
 
-####[3.2.2] Notes<a name="notes-2"></a>####
+####[3.2.2] Notes<a name="notes-1"></a>####
 
 * The reason we run `grid.jar` through `spawn.jar` rather than straight through
   `java -jar` is that `spawn.jar` acts as a watchdog, restarting dead nodes
